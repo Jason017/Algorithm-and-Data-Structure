@@ -10,7 +10,7 @@ public class HashMapPractice {
     }
 
     private static Map<String, Integer> wordCount(String[] strings) {
-        Map<String, Integer> map = new HashMap<String, Integer>();
+        Map<String, Integer> map = new HashMap<>();
         for (String s : strings) {
             if (!map.containsKey(s))
                 map.put(s, 1);
