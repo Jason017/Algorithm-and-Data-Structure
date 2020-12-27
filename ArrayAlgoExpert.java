@@ -1,7 +1,7 @@
 import java.util.HashSet;
 
 public class ArrayAlgoExpert{
-	public static void main(String[] args) {
+    public static void main(String[] args) {
         int[] a = { 2, 1, 3, 5, 3, 2 };
         int[] b = { 1, 1, 2, 2, 1 };
         int[] c = { 1 };
