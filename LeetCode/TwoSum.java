@@ -1,16 +1,26 @@
-package LeetCode;
 
-import java.util.HashMap;
-import java.util.Map;
 
-public class TwoSum {
-    public int[] twoSum(int[] nums, int target) {
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < nums.length; i++) {
-            if (map.containsKey(target - nums[i]))
-                return new int[]{map.get(target - nums[i]), i};
-            map.put(nums[i], i);
+// 206. Reverse Linked List
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        ListNode prev = null;
+        ListNode curr = head;
+        while (curr != null){
+            ListNode nextTemp = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = nextTemp;
         }
-        throw new IllegalArgumentException("No match found");
+        return prev;
     }
 }
