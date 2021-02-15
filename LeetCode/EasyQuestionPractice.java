@@ -53,6 +53,21 @@ class Solution {
     }
 }
 
+// 26. Remove Duplicates from Sorted Array
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        if (nums.length == 0) return 0;
+        int i = 0, j = 1;
+        for (; j < nums.length; j++) {
+            if(nums[i] != nums[j]) {
+                i++;
+                nums[i] = nums[j];
+            }
+        }
+        return i + 1;
+    }
+}
+
 // 191. Number of 1 Bits
 class Solution {
     // you need to treat n as an unsigned value
