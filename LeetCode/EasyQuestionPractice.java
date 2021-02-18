@@ -106,3 +106,26 @@ class Solution {
         return prev;
     }
 }
+
+// 416.
+class Solution {
+    public int hammingDistance(int x, int y) {
+        int count = 0, binary = x ^ y;
+        while(binary > 0) {
+            count += binary&1;
+            binary >>= 1;
+        }
+        return count;
+    }
+    
+}
+class Solution {
+    public int hammingDistance(int x, int y) {
+        String binary = Integer.toBinaryString(x^y);
+        int count = 0;
+        for(int i = 0; i < binary.length(); i++)
+            if(binary.charAt(i) == '1') 
+                count++;
+        return count;
+    }
+}
