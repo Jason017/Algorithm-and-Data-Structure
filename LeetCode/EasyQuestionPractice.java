@@ -11,6 +11,27 @@ class Solution {
         throw new IllegalArgumentException("No match found.");
     }
 }
+// 7. Reverse Integer
+class Solution {
+    public int reverse(int x) {
+        int n = 0, ef = 0;
+        if(x == 0) return 0;
+        
+        if(x < 0) {
+            ef = -1;
+        }
+        else {
+            ef = 1;
+        }
+        
+        x = Math.abs(x)    
+        while(x > 10) {
+            int temp = x % 10;
+            n += 
+        }
+        n *= ef;
+    }
+}
 
 // 9. Palindrome Number
 class Solution {
