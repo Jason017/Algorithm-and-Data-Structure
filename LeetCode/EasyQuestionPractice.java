@@ -11,6 +11,7 @@ class Solution {
         throw new IllegalArgumentException("No match found.");
     }
 }
+
 // 7. Reverse Integer
 class Solution {
     public int reverse(int x) {
