@@ -26,7 +26,7 @@ class Solution {
             reverse = x % 10 + reverse * 10;
             x /= 10;
         }
-        if(x > Integer.MAX_VALUE){
+        if(reverse > Integer.MAX_VALUE){
             return 0;
         }
         return negative ? (int)(-1 * reverse) : (int)reverse;
