@@ -14,22 +14,21 @@ class Solution {
 // 7. Reverse Integer
 class Solution {
     public int reverse(int x) {
-        int n = 0, ef = 0;
-        if(x == 0) return 0;
+        long reverse = 0;
+        boolean negative = false;
         
         if(x < 0) {
-            ef = -1;
+            negative = true;
+            x *= -1;
         }
-        else {
-            ef = 1;
-        }
-        
-        x = Math.abs(x)    
         while(x > 10) {
-            int temp = x % 10;
-            n += 
+            reverse = x % 10 + reverse * 10;
+            x /= 10;
         }
-        n *= ef;
+        if(x > Integer.MAX_VALUE){
+            return 0;
+        }
+        return negative ? (int)(-1 * reverse) : (int)reverse;
     }
 }
 
