@@ -22,7 +22,7 @@ class Solution {
             negative = true;
             x *= -1;
         }
-        while(x > 10) {
+        while(x > 0) {
             reverse = x % 10 + reverse * 10;
             x /= 10;
         }
