@@ -89,8 +89,15 @@ class Solution {
     }
 }
 
-
-
+// 58. Length of Last Word
+class Solution {
+    public int lengthOfLastWord(String s) {
+        s = s.trim();
+        int sp = s.lastIndexOf(" ");
+        if(sp == -1) return s.length();
+        return s.substring(sp + 1).length();
+    }
+}
 
 // 191. Number of 1 Bits
 class Solution {
