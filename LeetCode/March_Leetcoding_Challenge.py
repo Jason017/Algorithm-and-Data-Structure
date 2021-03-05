@@ -1,6 +1,7 @@
-# March 1st: Distribute Candies
+### March 1st: Distribute Candies
 
-# March 2nd: Set Mismatch
+### March 2nd: Set Mismatch
+# Approach 1:
 class Solution:
    def findErrorNums(self, nums: List[int]) -> List[int]:
       ln, dup = len(nums), 0
@@ -11,9 +12,15 @@ class Solution:
             dup = num
          seen[num] = 1
       return [dup, dup + aSum]
+# Approach 2:
+class Solution:
+   def findErrorNums(self, nums):
+      n = len(nums)
+      A = -sum(nums) + n*(n+1)//2
+      B = -sum(i*i for i in nums) + n*(n+1)*(2*n+1)//6
+      return [(B-A*A)//2//A, (B+A*A)//2//A]
 
-
-# March 3rd: Missing Number
+### March 3rd: Missing Number
 # Approach 1:
 class Solution:
    def missingNumber(self, nums: List[int]) -> int:
@@ -26,25 +33,24 @@ class Solution:
       return sum(range(1,len(nums)+1)) - sum(nums)
 
 
-# March 4th: Intersection of Two Linked List
+### March 4th: Intersection of Two Linked List
 # Definition for singly-linked list.
-
 # class ListNode:
 #     def __init__(self, x):
 #         self.val = x
 #         self.next = None
 class Solution:
-    def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
-        currA, currB = headA, headB
-        while currA != currB:
-            if currA == None:
-                currA = headB
-            else:
-                currA = currA.next
+   def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> ListNode:
+      currA, currB = headA, headB
+      while currA != currB:
+         if currA == None:
+            currA = headB
+         else:
+            currA = currA.next
             
-            if currB == None:
-                currB = headA
-            else:
-                currB = currB.next
-        return currA
+         if currB == None:
+            currB = headA
+         else:
+            currB = currB.next
+      return currA
         
