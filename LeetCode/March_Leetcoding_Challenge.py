@@ -1,4 +1,8 @@
 ### March 1st: Distribute Candies
+class Solution:
+   def distributeCandies(self, candyType: List[int]) -> int:
+      return min(len(candyType) //2, len(set(candyType)))
+
 
 ### March 2nd: Set Mismatch
 # Approach 1:
@@ -19,6 +23,7 @@ class Solution:
       A = -sum(nums) + n*(n+1)//2
       B = -sum(i*i for i in nums) + n*(n+1)*(2*n+1)//6
       return [(B-A*A)//2//A, (B+A*A)//2//A]
+
 
 ### March 3rd: Missing Number
 # Approach 1:
