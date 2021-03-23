@@ -13,8 +13,6 @@ public class Permutation {
 //        permutation3(str);
         long endTime = System.currentTimeMillis();
         System.out.println("Took " + (endTime - startTime) + " ms");
-
-
     }
 
 
