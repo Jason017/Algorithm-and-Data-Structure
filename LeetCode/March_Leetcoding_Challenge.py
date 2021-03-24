@@ -58,6 +58,7 @@ class Solution:
          else:
             currB = currB.next
       return currA
+<<<<<<< HEAD
 
 ### March 5th: Single-row Keyboard
 # class Solution:
@@ -65,3 +66,36 @@ class Solution:
 
 
 
+=======
+        
+### March 10th: Integer to Romen:
+class Solution:
+    def intToRoman(self, num: int) -> str:
+        dct = {1: 'I', 4: 'IV', 5: 'V', 9: 'IX', 10: 'X', 40: 'XL', 50: 'L', 90: 'XC', 100: 'C', 400: 'CD', 500: 'D', 900: 'CM', 1000: 'M'}
+        stack = [1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000]
+        ans = []
+        while num > 0:
+            if stack[-1] > num:
+                stack.pop()
+            else:
+                num -= stack[-1]
+                ans.append(dct[stack[-1]])
+        return "".join(map(str, ans))
+
+
+### March 14th: Swapping Nodes in a Linked List
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:        
+    def swapNodes(self, head: ListNode, k: int) -> ListNode:
+        A, B = head, head
+        for i in range(1, k): A = A.next
+        nodeK, A = A, A.next
+        while A: A, B = A.next, B.next
+        nodeK.val, B.val = B.val, nodeK.val
+        return head     
+>>>>>>> 07662b00d9d74428edadbc76b40dafe8911fb6f4
