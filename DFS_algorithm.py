@@ -46,3 +46,6 @@ def dfs1(graph, node, visited=None):
 
 print('2nd approach')
 dfs1(g, 'A')
+
+# 3rd approach
+
