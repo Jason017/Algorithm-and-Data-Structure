@@ -44,14 +44,16 @@ g = {
 #   / \  \
 #  D  E - F
 
-visited = set() # Set to keep track of visited nodes.
+# visited = set() # Set to keep track of visited nodes.
 
-def dfs1(visited, graph, node):
+def dfs1(graph, node, visited=None):
+    if visited is None:
+        visited = set()
     if node not in visited:
         print (node)
         visited.add(node)
         for neighbour in graph[node]:
-            dfs1(visited, graph, neighbour)
+            dfs1(graph,neighbour,visited)
 
 # Driver Code
-dfs1(visited, g, 'A')
+dfs1(g, 'A')
