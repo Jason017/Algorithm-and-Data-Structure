@@ -24,33 +24,6 @@ matrix = [[1,2],[3,4],[5,6],[7,8],[9,10]]
 transpose = [[row[i] for row in matrix] for i in range(len(matrix[0]))]
 print(transpose)
 
-<<<<<<< HEAD:Practice.py
-# Try numpy
-import numpy as np
-
-A = np.array([[1, 1], [2, 1], [3, -3]])
-print(A.transpose())
-
-def binaryGap(N):
-    
-	l = bin(N)
-    p1, p2 = 0, 0
-    dtc = 0
-
-    for i in range(2, len(l)):
-        if l[i] == '1':
-            if p1 == 0:
-                p1 = i
-            else:
-                p2 = i
-                dtc = max((p2-p1), dtc)
-                p1 = p2
-            
-    return dtc
-
-
-=======
->>>>>>> d16ecd21bcf2e0b4bbc4eab5dbbf6239e361b4e8:MessyCode/practice3.py
 # Try HashMap
 print('Please enter an integer: ')
 n = int(input().strip())
