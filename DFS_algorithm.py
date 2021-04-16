@@ -4,7 +4,6 @@ def dfs(graph, start, visited=None):
         visited = set()
     visited.add(start)
     print(start)
-
     for next in graph[start] - visited:
         dfs(graph, next, visited)
     return visited
@@ -15,18 +14,10 @@ graph = {'0': set(['1', '2']),
          '2': set(['0']),
          '3': set(['1']),
          '4': set(['2', '3'])}
-
-#   0 -- 3
-#   | \  
-#   |  2 
-#   | / \
-#   1    4
+print('1st approach')
 print(graph)
-print()
 dfs(graph,'0')
 print()
-
-
 
 # 2nd approach
 g = {
@@ -44,8 +35,6 @@ g = {
 #   / \  \
 #  D  E - F
 
-# visited = set() # Set to keep track of visited nodes.
-
 def dfs1(graph, node, visited=None):
     if visited is None:
         visited = set()
@@ -55,5 +44,5 @@ def dfs1(graph, node, visited=None):
         for neighbour in graph[node]:
             dfs1(graph,neighbour,visited)
 
-# Driver Code
+print('2nd approach')
 dfs1(g, 'A')
