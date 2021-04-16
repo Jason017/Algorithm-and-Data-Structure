@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 // package Example;
-=======
-//package Example;
->>>>>>> d16ecd21bcf2e0b4bbc4eab5dbbf6239e361b4e8
 
 import java.util.Arrays;
 
