@@ -47,10 +47,6 @@ def recur_sum(n):
 L = range(10)
 print(L[::-1])
 
-scores = [54,67,48,99,27]
-for i, score in enumerate(scores, 1):
-    print(i, score)
-
 def displaysublist(lst): 
     sublists = [[ ]] 
     for i in range(len(lst) + 1):   
