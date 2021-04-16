@@ -30,12 +30,29 @@ import numpy as np
 A = np.array([[1, 1], [2, 1], [3, -3]])
 print(A.transpose())
 
+def binaryGap(N):
+    
+	l = bin(N)
+    p1, p2 = 0, 0
+    dtc = 0
+
+    for i in range(2, len(l)):
+        if l[i] == '1':
+            if p1 == 0:
+                p1 = i
+            else:
+                p2 = i
+                dtc = max((p2-p1), dtc)
+                p1 = p2
+            
+    return dtc
+
+
 # Try HashMap
 print('Please enter an integer: ')
 n = int(input().strip())
 check = {True: "Not Weird", False: "Weird"}
 print(check[n%2==0 and (n in range(2,6) or n > 20)])
-
 
 # Floyd's tortoise and hare
 # Solve findDuplicate in linear time and constant space
@@ -64,3 +81,7 @@ def findDuplicate1(nums):
         seen[num] = True
 
 print(findDuplicate([3,1,3,4,2]))
+
+b = [2,7,11,15]
+b = sorted([(num, i) for i, num in enumerate(b)])[::-1]
+print(b)
