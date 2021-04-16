@@ -24,12 +24,6 @@ matrix = [[1,2],[3,4],[5,6],[7,8],[9,10]]
 transpose = [[row[i] for row in matrix] for i in range(len(matrix[0]))]
 print(transpose)
 
-# Try numpy
-import numpy as np
-
-A = np.array([[1, 1], [2, 1], [3, -3]])
-print(A.transpose())
-
 # Try HashMap
 print('Please enter an integer: ')
 n = int(input().strip())

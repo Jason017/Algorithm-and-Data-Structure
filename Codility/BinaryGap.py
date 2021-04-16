@@ -1,0 +1,7 @@
+class BinaryGap:
+    def Solution():
+
+
+
+
+
