@@ -44,11 +44,8 @@ def recur_sum(n):
     else:
         return n + recur_sum(n-1)
 
-L = range(10)
-print(L[::-1])
-
 def displaysublist(lst): 
-    sublists = [[ ]] 
+    sublists = [[]] 
     for i in range(len(lst) + 1):   
         for j in range(i + 1, len(lst) + 1):         
            sub = lst[i:j] 
@@ -63,7 +60,7 @@ def displaysublist(lst):
 #     lst.append(k)
 # print("All sublist: \n",displaysublist(lst)) 
 
-
+# copied
 given_list = [1, 2, [3], [4, [5, 6,[7,[8]]]]]
 final_list = []
 def flattenList(given_list):
@@ -117,3 +114,4 @@ print(",".join([str(i) for i in range(5)]))
 import numpy as np
 A = np.array([[1, 1], [2, 1], [3, -3]])
 print(A.transpose())
+print('A:\n',A[0:])

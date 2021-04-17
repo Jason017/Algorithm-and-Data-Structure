@@ -1,110 +1,37 @@
-# def q(target, aList, memo=set()):
-#     if len(aList) == 0:
-#         return False
-#     num = aList.pop()
-#     memo.add(num)    
-#     if target + num in memo:
-#         return True
-#     return q(target, aList, memo)
-
-def compareAll(lst, tgt):
-    x = 0
-    while x < len(lst): # let's call this x loop
-        y = 0
-        while y < len(lst): # let's call this y loop
-            if abs(lst[x]-lst[y]) == tgt:
-                return True
-            y += 1
-        x += 1
+def sumOfTwoArr(a,b,v):
+    diff = set()
+    for i in range(len(a)):
+        d = v-a[i]
+        diff.add(d)
+    for i in range(len(b)):
+        if b[i] in diff:
+            return True
     return False
 
-def recur_diff(lst, tgt, start, end):
-    if (abs(lst[start]-lst[end])==tgt):
-        return True
-    if (start == end):
-        return False
-    if (start == end - 1):
-        return recur_diff(lst, tgt, 0, start)
-    return recur_diff(lst, tgt, start+1, end)
+# Brute Force:
+# 
+# def sumOfTwoArr(a,b,v):
+#     for i in range(len(a)):
+#         diff_value = v-a[i]
+#         for j in range(len(b)):
+#             if b[j] == diff_value:
+#                 return True
+#     return False
 
-def recur(lst, tgt, start, end):
-    if (end > len(lst) or start >= end):
-        return False
-    elif (abs(lst[start]-lst[end])==tgt):
-        return True
-    return recur(lst, tgt, start+1,end) or recur_diff(lst, tgt, start, end-1) 
+a = [0,0,-5,3203]
+b = [-10,40,-3,9]
+v = -8
+print(sumOfTwoArr(a,b,v))
 
-def is_diff_two(lst, tgt):
-    if not lst or len(lst) < 2:
-        return False
-    return recur_diff(lst, tgt, 0, len(lst)-1)
+# Kadane's Algorithm
+# Find largest sum of any contiguous subarray
+def maxSubarraySum(arr):
+    curr_max, best_max = arr[0], arr[0]
+    for i in arr[1:]:
+        curr_max = max(i, curr_max+i)
+        best_max = max(curr_max, best_max)
+    return best_max
 
-list1 = [3,4,1,3,-1,7]
-list2 = [2,4,8]
-list3 = [1,2,4,8,1]
-list4 = [2,4,4,8]
-list5 = [5]
-list6 = [0,0,3,2,0,0]
-list7 = [-1,5,4]
-tgt1 = 4
-tgt2 = 7
-tgt3 = 0
-tgt4 = 3
-tgt5 = 1
-
-# print(q(tgt1, list2, memo=set())) # True
-# print(is_diff_two(list1, tgt1)) # True
-# print(is_diff_two(list2, tgt1)) # True
-# print(is_diff_two(list3, tgt2)) # True
-# print(is_diff_two(list4, tgt2)) # False
-# print(is_diff_two(list5, tgt3)) # False
-# print(is_diff_two(list6, tgt1)) # False
-# print(is_diff_two(list7, tgt4)) # False
-
-def compare_all_recur(lst, tgt, x=0, y=0):
-    if(len(lst)-1 == x and len(lst) == y):
-        return False
-    if(len(lst) == x or len(lst) == y):
-        return compare_all_recur(lst, tgt, x+1, 0)
-    if(abs(lst[x] - lst[y])==tgt):
-        return True
-    return compare_all_recur(lst, tgt, x, y+1)
-
-# print()
-# print(compare_all_recur([2,3,4,5,6],0)) # True
-# print(compare_all_recur(list6,tgt5))
-
-# def decimalToBinary(num):
-#     if num >= 1:
-#         decimalToBinary(num // 2)
-#     print(num % 2, end = '')
-
-
-#####################
-
-# x = 1041
-# lst = [a for a in bin(x).replace("0b","")]
-# res = [int(i) for i in bin(x)[2:]] 
-
-# print(lst)
-# print(lst.index('0', 3))
-
-#####################
-
-def rotationArray(arr, k):
-    l = len(arr)
-    for i in range(k):
-        t1 = arr[-1:]
-        t2 = arr[:-1]
-        arr = t1 + t2
-    return arr
-
-# def rotationArray(arr, k):
-    # if len(arr) == 0:
-    #     return arr
-    # k = k % len(arr)
-    # return arr[-k:] + arr[:-k]
-
-arr = [1,2,3,3,6,7,7]
-r = rotationArray(arr,3)
-print(list(set(arr)))
+arr = [5,10,-5,14,-3,8,4,1,-2,-1]
+a = [-2,-3,4,-1,-2,1,5,-3]
+print(maxSubarraySum(arr))

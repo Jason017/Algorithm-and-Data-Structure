@@ -52,7 +52,6 @@ tgt3 = 0
 tgt4 = 3
 tgt5 = 1
 
-# print(q(tgt1, list2, memo=set())) # True
 print(is_diff_two(list1, tgt1)) # True
 print(is_diff_two(list2, tgt1)) # True
 print(is_diff_two(list3, tgt2)) # True
@@ -60,11 +59,6 @@ print(is_diff_two(list4, tgt2)) # False
 print(is_diff_two(list5, tgt3)) # False
 print(is_diff_two(list6, tgt1)) # False
 print(is_diff_two(list7, tgt4)) # False
-
-# aList = [0,0,0,0,0,0]
-# aList[:1] = [1]
-# aList[1:] = [2] * len(aList[1:])
-# print(aList)
 
 def compare_all_recur(lst, tgt, x=0, y=0):
     if(len(lst)-1 == x and len(lst) == y):
