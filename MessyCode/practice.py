@@ -83,3 +83,10 @@ for i, val in enumerate(x):
 scores = [54,67,48,99,27]
 for i, score in enumerate(scores, 1):
     print(i, score)
+
+# Array conversion
+
+input_str_arr = input('Please enter an array: ').split()
+print('Input string array: ', input_str_arr)
+input_int_arr = [int(x) for x in input('Please enter an array: ').split()]
+print('Input integer array: ', input_int_arr)
