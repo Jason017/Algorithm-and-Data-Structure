@@ -28,8 +28,8 @@ print(sumOfTwoArr(a,b,v))
 def maxSubarraySum(arr):
     curr_max, best_max = arr[0], arr[0]
     for i in arr[1:]:
-        curr_max = max(i, curr_max+i)
-        best_max = max(curr_max, best_max)
+        curr_max = curr_max+i if curr_max+i > i else i
+        best_max = curr_max if curr_max > best_max else best_max
     return best_max
 
 arr = [5,10,-5,14,-3,8,4,1,-2,-1]

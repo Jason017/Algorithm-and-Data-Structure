@@ -55,7 +55,7 @@ print(findDuplicate([3,1,4,4,2]))
 
 # Decimal and binary conversion
 def binaryToDecimal(binary):
-    decimal, i, n = 0, 0, 0
+    decimal, i = 0, 0
     while(binary != 0):
         dec = binary % 10
         decimal = decimal + dec * pow(2, i)
