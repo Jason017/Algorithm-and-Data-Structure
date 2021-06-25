@@ -2,9 +2,9 @@ import re
 import os
 
 text_to_search = '''
-abcdefghijklmn
+Ha HaHa Ha
 
-Ha HaHa
+abcdefghijklmn
 
 1234567890
 
@@ -46,7 +46,7 @@ pattern = re.compile(r'M(r|rs|s)\.?\s[A-Z]\w*') # All person's name in the text
 matches = pattern.finditer(text_to_search) # Comes with an extra function of group feature compared with fillall()
 matches2 = pattern.findall(text_to_search) # Prints solely the 1st matched group of text or if grouped
 
-print(matches2)
+# print(matches2)
 
 for match in matches:
     print(match)
