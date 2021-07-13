@@ -28,8 +28,7 @@ def path_with_obstacle(grid,k):
     lives = [[-1 for _ in range(m)] for _ in range(n)]
     q = deque()
     q.append([0,0,k,0])
-    visited = set()
-
+    
     while len(q) > 0:
         row_idx, col_idx, rlives, dist = q.popleft()
         if row_idx == n-1 and col_idx == m-1:
