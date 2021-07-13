@@ -1,3 +1,24 @@
+# 7. Reverse Integer
+class Solution:
+    def reverse(self, x: int) -> int:
+        negative = False
+        
+        if x < 0:
+            negative = True
+            x = -x
+            
+        r = 0
+        while x > 0:
+            r = x%10 + r*10
+            x //= 10
+        
+        if r == 0 or r > (2**31) - 1 or r < -(2**31):
+            return 0
+        
+        if negative:
+            return -r
+        return r
+
 # 9. Palindrome Number
 class Solution:
     def isPalindrome(self, x: int) -> bool:
