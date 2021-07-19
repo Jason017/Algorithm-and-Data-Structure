@@ -6,13 +6,13 @@ public class Permutation {
     public static void main(String[] args) {
         String str = "ABC";
         //permutation("", str);
-        long startTime = System.currentTimeMillis();
+        // long startTime = System.currentTimeMillis();
         permute("", str);
 //        permutation1(str, 0, str.length() - 1);
 //        permutation2(str.toCharArray(), 0);
 //        permutation3(str);
-        long endTime = System.currentTimeMillis();
-        System.out.println("Took " + (endTime - startTime) + " ms");
+        // long endTime = System.currentTimeMillis();
+        // System.out.println("Took " + (endTime - startTime) + " ms");
     }
 
 

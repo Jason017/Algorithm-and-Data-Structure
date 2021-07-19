@@ -1,10 +1,11 @@
 import java.util.Scanner;
 
 public class PascalTriangle {
+    private static Scanner reader;
     public static void main(String[] args) {
-        Scanner reader = new Scanner(System.in);
+        reader = new Scanner(System.in);
         int n = reader.nextInt();
-        printPascal(7);
+        printPascal(n);
     }
 
     private static void printPascal(int n) {
@@ -17,6 +18,12 @@ public class PascalTriangle {
         }
     }
 
+    /**
+     * 
+     * @param n
+     * @param k
+     * @return
+     */
     private static int binomialCoeff(int n, int k) {
         int res = 1;
          

@@ -23,7 +23,7 @@ def bfs(graph, vertex):
     while queue:
         v = queue.popleft()
         for n in graph[v]:
-            if n not in level:            
+            if n not in level:
                 queue.append(n)
                 level[n] = level[v] + 1
                 parent[n] = v

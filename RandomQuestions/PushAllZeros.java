@@ -8,8 +8,10 @@ public class PushAllZeros {
         int[] num1 = new int[]{1, 0, 2, 0, 4, 0, 6, 7, 0, 2, 1, 8, 0, 3};
         int[] newNum = pushZeros1(num, 0, num.length - 1);
         int[] newNum1 = pushZeros2(num1);
+        int[] newNum2 = pushZeros3(num1, num1.length);
         System.out.println(Arrays.toString(newNum));
         System.out.println(Arrays.toString(newNum1));
+        System.out.println(Arrays.toString(newNum2));
     }
 
     private static int[] pushZeros1(int[] arr, int l, int r) {
@@ -32,17 +34,18 @@ public class PushAllZeros {
         int[] newArr = new int[arr.length];
         int count = 0;
         for (int i = 0; i < arr.length; i++)
-            if (arr[i] != 0
+            if (arr[i] != 0)
                 newArr[count++] += arr[i];
         return newArr;
     }
 
-    private static void pushZeros3(int arr[], int n) {
+    private static int[] pushZeros3(int arr[], int n) {
         int count = 0;
         for (int i = 0; i < n; i++)
             if (arr[i] != 0)
                 arr[count++] = arr[i];
         while (count < n)
             arr[count++] = 0;
+        return arr;
     }
 }
