@@ -1,6 +1,6 @@
 # Algorithm-and-Data-Structure
 
-Review frequently
+For constant code review and looking back
 
 Link to [My-Leetcode](https://github.com/Jason017/My-Leetcode)
 
