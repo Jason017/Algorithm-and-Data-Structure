@@ -10,7 +10,7 @@ class Trie:
     def getNode(self):
         return TrieNode()
     
-    def charToIndex(self, ch):
+    def char_to_index(self, ch):
         return ord(ch) - ord('a')
 
     def insert(self, key):

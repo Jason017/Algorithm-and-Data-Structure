@@ -19,17 +19,10 @@ def findDuplicate(nums):
 
 # Using HashMap
 def findDuplicate1(nums):
-    seen = {}
+    seen = set()
     for num in nums:
         if num in seen:
             return num
-        seen[num] = True
+        seen.add(num)
 
-
-def findDuplicate2(nums):
-    for i in range(len(nums)):
-        if nums[abs(nums[i])-1] < 0:
-            return nums[abs(nums[i])]
-        nums[abs(nums[i])-1] *= -1
-
-print(findDuplicate2([3,1,4,4,2]))
+print(findDuplicate1([3,7,4,1,2,0,7,6]))
