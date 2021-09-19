@@ -2,7 +2,6 @@ def IsDuplicateNumber(arr):
     s = set()
     for i in range(len(arr)):
         s.add(i)
-
         if len(s) != i+1:
             return False
     return True
