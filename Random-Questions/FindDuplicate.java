@@ -1,6 +1,6 @@
-import java.util.HashSet;
+import java.util.*;
 
-public class FindDuplicate{
+public class findDuplicate{
     public static void main(String[] args) {
         int[] a = { 2, 1, 3, 5, 3, 2 };
         int[] b = { 1, 1, 2, 2, 1 };

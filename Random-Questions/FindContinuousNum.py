@@ -16,6 +16,16 @@ def findContinuousNum(nums):
     # return '(%s)' % ', '.join(r)
     return len(r)
 
+nums1 = [2, 3, 4, 5, 20, 13, 14, 15, 16, 17, 20]
+nums2 = [-4,-3,-1,3,4,7,8]
+nums3 = [17,20,34,45,46]
+nums4 = [4,6]
+print(findContinuousNum(nums1))
+print(findContinuousNum(nums2))
+print(findContinuousNum(nums3))
+print(findContinuousNum(nums4))
+
+
 def consecutiveSegments(nums):
     n = len(nums)
     if n <= 1:
@@ -33,10 +43,6 @@ nums1 = [2, 3, 4, 5, 20, 13, 14, 15, 16, 17, 20]
 nums2 = [-4,-3,-1,3,4,7,8]
 nums3 = [17,20,34,45,46]
 nums4 = [4,6]
-print(findContinuousNum(nums1))
-print(findContinuousNum(nums2))
-print(findContinuousNum(nums3))
-print(findContinuousNum(nums4))
 
 print(consecutiveSegments(nums1))
 print(consecutiveSegments(nums2))

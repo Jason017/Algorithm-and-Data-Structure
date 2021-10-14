@@ -2,7 +2,7 @@
 
 import java.util.Arrays;
 
-public class Permutation {
+public class permutation {
     public static void main(String[] args) {
         String str = "ABC";
         //permutation("", str);

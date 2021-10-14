@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class PascalTriangle {
+public class pascalTriangle {
     private static Scanner reader;
     public static void main(String[] args) {
         reader = new Scanner(System.in);
