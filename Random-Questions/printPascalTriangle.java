@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class pascalTriangle {
+public class printPascalTriangle {
     private static Scanner reader;
     public static void main(String[] args) {
         reader = new Scanner(System.in);
@@ -18,12 +18,7 @@ public class pascalTriangle {
         }
     }
 
-    /**
-     * 
-     * @param n
-     * @param k
-     * @return
-     */
+    
     private static int binomialCoeff(int n, int k) {
         int res = 1;
          
