@@ -12,5 +12,5 @@ def solution(nums,k):
             del nums[-1]
     return cnt
 
-nums = [1,3,4,7,2,-1,7,4,3,0]
-print(solution(nums,5))
+nums = [1,3,4,7,2,-1,7,4,3,0], k=5
+print(solution(nums,k))

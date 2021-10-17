@@ -7,7 +7,8 @@ def allPossibleSublist(arr):
             sublists.append(arr[i:j])
     return sublists
 
-print(allPossibleSublist(["a", "b", "c"]))
+arr = ["a", "b", "c"]
+print(allPossibleSublist(arr))
 
 
 def allContinuousSublist(arr):
@@ -15,9 +16,10 @@ def allContinuousSublist(arr):
     sublists = []
 
     for i in range(n):
-        for j in range(1, n+1):
-            if i+j <= n:
-                sublists.append(arr[i:i+j])
+        for j in range(i, n):
+            sublists.append(arr[i:j+1])
     return sublists
 
-print(allContinuousSublist(["a", "b", "c"]))
+arr = ["a", "b", "c"]
+print(allContinuousSublist(arr))
+print(arr[2:3])

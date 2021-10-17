@@ -16,8 +16,6 @@ def findDuplicate(nums):
         ptr2 = nums[ptr2]
     return ptr2
 
-print(findDuplicate([3,7,4,1,2,0,7,6]))
-
 # Using HashMap
 def findDuplicate(nums):
     seen = set()
@@ -26,4 +24,5 @@ def findDuplicate(nums):
             return num
         seen.add(num)
 
-print(findDuplicate([3,7,4,1,2,0,7,6]))
+arr = [3,7,4,1,2,0,7,6]
+print(findDuplicate(arr))
