@@ -1,16 +1,21 @@
-def solution(nums,k):
-    nums.sort()
-    cnt = 0
-    while len(nums) >= 2 and nums[0]+nums[1] <= k:
-        if nums[0]+nums[-1]<k:
-            del nums[0]
-        if nums[0]+nums[-1]>k:
-            del nums[-1]
-        else:
-            cnt+=1
-            del nums[0]
-            del nums[-1]
-    return cnt
+# https://www.geeksforgeeks.org/python-program-to-find-all-possible-pairs-with-given-sum/
 
-nums = [1,3,4,7,2,-1,7,4,3,0], k=5
-print(solution(nums,k))
+class Solution:
+    def findPairs(self,nums,target):
+        nums.sort()
+        cnt = 0
+        low, high = 0, len(nums)-1
+        while low < high:
+            if nums[low] + nums[high] == target:
+                cnt += 1
+                low += 1
+                high -= 1
+            elif nums[low] + nums[high] < target:
+                low += 1
+            else:
+                high -= 1
+        return cnt
+
+sol = Solution()
+nums = [1,3,4,7,2,-1,7,4,3,0]; target=5
+print(sol.findPairs(nums,target))

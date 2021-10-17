@@ -2,7 +2,7 @@
 
 import java.util.Arrays;
 
-public class PushAllZeros {
+public class pushAllZeros {
     public static void main(String[] args) {
         int[] num = new int[]{1, 0, 2, 0, 3};
         int[] num1 = new int[]{1, 0, 2, 0, 4, 0, 6, 7, 0, 2, 1, 8, 0, 3};

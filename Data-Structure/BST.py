@@ -19,7 +19,7 @@ def insert(root, key):
 def inorder(root):
     if root:
         inorder(root.left)
-        print(root.val, end=" ")
+        print(root.val, high=" ")
         inorder(root.right)
 
 
@@ -35,28 +35,28 @@ r = insert(r, 80)
 
 
 # Binary Search recursively
-def binary_search_recursive(arr, start, end, target):
-    if start <= end:
-        mid = (start + end) // 2
+def binary_search_recursive(arr, low, high, target):
+    if low <= high:
+        mid = (low + high) // 2
         if arr[mid] == target:
             return mid
         elif arr[mid] > target:
-            return binary_search_recursive(arr, start, mid-1, target)
+            return binary_search_recursive(arr, low, mid-1, target)
         elif arr[mid] < target:
-            return binary_search_recursive(arr, mid+1, end, target)
+            return binary_search_recursive(arr, mid+1, high, target)
     return -1
 
 # Binary Search iteratively
 def binary_search_iterative(arr, target):
-    mid, start, end = 0, 0, len(arr)
-    while start<=end:
-        mid = (start+end) // 2
+    mid, low, high = 0, 0, len(arr)
+    while low<=high:
+        mid = (low+high) // 2
         if target == arr[mid]:
             return mid
         elif target < arr[mid]:
-            end = mid - 1
+            high = mid - 1
         else:
-            start = mid + 1
+            low = mid + 1
     return -1
 
 # Get the maximum height/depth of a binary tree
