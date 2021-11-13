@@ -5,7 +5,7 @@ def calculate_distances(graph, starting_vertex):
     distances[starting_vertex] = 0
 
     pq = [(0, starting_vertex)]
-    while len(pq) > 0:
+    while pq:
         curr_distance, curr_vertex = heapq.heappop(pq)
 
         if curr_distance > distances[curr_vertex]:
