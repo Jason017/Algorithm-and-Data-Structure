@@ -70,11 +70,9 @@ def binary_search_bisect(arr, target):
 
 # Get the maximum height/depth of a binary tree
 def maxHeight(node):
-    if node is None:
-        return 0
-    else:
+    if node:
         return 1 + max(maxHeight(node.left), maxHeight(node.right)) 
-
+    return 0
 
 arr = [2,3,4,10,40,50]
 print(binary_search_recursive(arr, 0, len(arr)-1, 40))
