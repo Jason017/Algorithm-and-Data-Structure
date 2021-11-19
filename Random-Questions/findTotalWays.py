@@ -4,9 +4,9 @@ def findTotalWays(arr, i, k):
     to calculate a target number using only array 
     elements and addition or subtraction operator.
     '''
-    if (k == 0 and i == len(arr)): 
+    if k == 0 and i == len(arr): 
         return 1
-    if (i >= len(arr)):
+    if i >= len(arr):
         return 0
     return (findTotalWays(arr, i + 1, k) + 
             findTotalWays(arr, i + 1, k - arr[i]) + 

@@ -1,3 +1,5 @@
+# Algorithm-and-Data-Structure/Random-Questions/findTotalWays.py
+
 def totalWays(n, m):
     ''' 
     Find total ways to reach the n'th stair from the bottom
@@ -12,4 +14,8 @@ def totalWays(n, m):
 
     return count
 
-print(totalWays(0,1))
+m1 = 3; n1 = 2
+m2 = 4; n2 = 3
+
+print(totalWays(n1, m1))
+print(totalWays(n2, m2))
