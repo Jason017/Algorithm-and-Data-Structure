@@ -3,12 +3,12 @@ import bisect
 
 def findKLargest(nums, k):
     arr = []
-    for i in range(k): 
+    for _ in range(k): 
         mx = float('-inf')
         for j in range(len(nums)):
             if nums[j] > mx:
-                mx = nums[j];
-        nums.remove(mx);
+                mx = nums[j]
+        nums.remove(mx)
         arr.append(mx)
           
     return arr[-1]

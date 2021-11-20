@@ -1,21 +1,32 @@
 from bisect import bisect_left
+from collections import deque
 
 class Node:
-    def __init__(self, key):
+    def __init__(self, val):
+        self.val = val
         self.left = None
         self.right = None
-        self.val = key
 
-def insert(root, key):
+    def bfs(self):
+        dq = deque([self])
+        while dq:
+            node = dq.pop()
+            print(node.val)
+            if node.left:
+                dq.appendleft(node.left)
+            if node.right:
+                dq.appendleft(node.right)
+
+def insert(root, val):
     if root:
-        if root.val < key:
-            root.right = insert(root.right, key)
-        elif root.val > key:
-            root.left = insert(root.left, key)
+        if root.val < val:
+            root.right = insert(root.right, val)
+        elif root.val > val:
+            root.left = insert(root.left, val)
         else:
             return root
     else:
-        return Node(key)
+        return Node(val)
     return root
 
 def inorder(root):
