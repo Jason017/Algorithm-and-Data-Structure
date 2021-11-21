@@ -17,6 +17,30 @@ class Node:
             if node.right:
                 dq.appendleft(node.right)
 
+
+    def find(self, val):
+        if val == self.val:
+            return True
+        elif val < self.val:
+            if self.left == None:
+                return False
+            else:
+                return self.left.find(val)
+        else:
+            if self.right == None:
+                return False
+            else:
+                return self.right.find(val)
+
+        
+    def printInOrder(self):
+        if self.left:
+            self.left.printInOrder()
+        print(self.val)
+        if self.right:
+            self.right.printInOrder()
+
+
 def insert(root, val):
     if root:
         if root.val < val:

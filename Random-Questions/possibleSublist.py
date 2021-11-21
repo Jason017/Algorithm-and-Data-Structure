@@ -22,4 +22,3 @@ def allContinuousSublist(arr):
 
 arr = ["a", "b", "c"]
 print(allContinuousSublist(arr))
-print(arr[2:3])
