@@ -1,4 +1,4 @@
-# Algorithm-and-Data-Structure/Random-Questions/findTotalWays.py
+# https://github.com/Jason017/Algorithm-and-Data-Structure/blob/main/Random-Questions/findTotalWays.py
 # https://www.geeksforgeeks.org/tabulation-vs-memoization/
 # https://www.techiedelight.com/find-total-ways-reach-nth-stair-with-atmost-m-steps/
 
@@ -8,7 +8,7 @@ at most m steps at a time
 '''
 
 class Solution:
-    # Solution 1: recursion
+    ### Solution 1: recursion
     def totalWays(self, n, m):
         if n < 0:
             return 0
@@ -22,11 +22,10 @@ class Solution:
 
         return count
 
-    # Solution 2: memorization (Top-Down DP Approach)
+    ### Solution 2: memorization (Top-Down DP Approach)
     def totalWays(self, n, m):
         dp = [0] * (n+1)
         res = self.helper(n,m,dp)
-        # print(dp)
         return res
     
     def helper(self, n, m, dp):
@@ -45,7 +44,7 @@ class Solution:
         return dp[n]
     
 
-    # Solution 3: tabluation (Bottom-Up DP Approach)
+    ### Solution 3: tabluation (Bottom-Up DP Approach)
     def totalWays(self, n, m):
         if n == 1 or m == 1:
             return 1
