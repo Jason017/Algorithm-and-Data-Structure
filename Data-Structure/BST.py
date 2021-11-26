@@ -1,11 +1,44 @@
 from bisect import bisect_left
 from collections import deque
 
-class Node:
+class TreeNode:
     def __init__(self, val):
         self.val = val
         self.left = None
         self.right = None
+
+    def search(self, target):
+        if not self or target == self.val:
+            return self
+        return self.left.search(target) if target < self.val \
+            else self.right.search(target)
+
+    def insert(self, root, value):
+        if root:
+            if root.val == value:
+                return root
+            elif root.val < value:
+                root.right = self.insert(root.right, value)
+            else:
+                root.left = self.insert(root.left, value)
+        else:
+            return TreeNode(value)
+        return root
+
+    def printInOrder(self):
+        if self.left: self.left.printInOrder()
+        print(self.val, end=" ")
+        if self.right: self.right.printInOrder()
+
+    def printPreOrder(self):
+        print(self.val, end=" ")
+        if self.left: self.left.printPreOrder()
+        if self.right: self.right.printPreOrder()
+
+    def printPostOrder(self):
+        if self.left: self.left.printPostOrder()
+        if self.right: self.right.printPostOrder()
+        print(self.val, end=" ")
 
     def bfs(self):
         dq = deque([self])
@@ -18,60 +51,29 @@ class Node:
                 dq.appendleft(node.right)
 
 
-    def find(self, val):
-        if val == self.val:
-            return True
-        elif val < self.val:
-            if self.left == None:
-                return False
-            else:
-                return self.left.find(val)
-        else:
-            if self.right == None:
-                return False
-            else:
-                return self.right.find(val)
+root = TreeNode(50)
+root.insert(root, 30)
+root.insert(root, 20)
+root.insert(root, 40)
+root.insert(root, 70)
+root.insert(root, 80)
 
-        
-    def printInOrder(self):
-        if self.left:
-            self.left.printInOrder()
-        print(self.val)
-        if self.right:
-            self.right.printInOrder()
+print("\nIn Order: ")
+root.printInOrder()
+print("\nPre Order: ")
+root.printPreOrder()
+print("\nPost Order: ")
+root.printPostOrder()
+print()
 
 
-def insert(root, val):
-    if root:
-        if root.val < val:
-            root.right = insert(root.right, val)
-        elif root.val > val:
-            root.left = insert(root.left, val)
-        else:
-            return root
-    else:
-        return Node(val)
-    return root
 
-def inorder(root):
-    if root:
-        inorder(root.left)
-        print(root.val, high=" ")
-        inorder(root.right)
-
-
-r = Node(50)
-r = insert(r, 30)
-r = insert(r, 20)
-r = insert(r, 40)
-r = insert(r, 70)
-r = insert(r, 60)
-r = insert(r, 80)
-
-# lst = str(inorder(r))
+# https://stackoverflow.com/questions/26564646/space-complexity-of-iterative-vs-recursive-binary-search-tree
+# Recursive BST vs Iterative BST in terms of time/space complexity
 
 
 # Binary Search recursively
+# O(log(n)) O(log(n))
 def binary_search_recursive(arr, low, high, target):
     if low <= high:
         mid = (low + high) // 2
@@ -84,6 +86,7 @@ def binary_search_recursive(arr, low, high, target):
     return -1
 
 # Binary Search iteratively
+# O(log(n)) O(1)
 def binary_search_iterative(arr, target):
     mid, low, high = 0, 0, len(arr)
     while low<=high:
@@ -96,12 +99,16 @@ def binary_search_iterative(arr, target):
             low = mid + 1
     return -1
 
+
+# Binary Search with Bisect
+# O(log(n)) O(1)
 def binary_search_bisect(arr, target):
     idx = bisect_left(arr, target) 
     if idx != len(arr) and arr[idx] == target: 
         return idx
     else: 
         return -1
+
 
 # Get the maximum height/depth of a binary tree
 def maxHeight(node):
