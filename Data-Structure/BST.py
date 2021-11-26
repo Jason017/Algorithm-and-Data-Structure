@@ -25,20 +25,37 @@ class TreeNode:
             return TreeNode(value)
         return root
 
-    def printInOrder(self):
-        if self.left: self.left.printInOrder()
-        print(self.val, end=" ")
-        if self.right: self.right.printInOrder()
+    # Convert a List into a TreeNode
+    def constructBST(self, nums):
+        root = None
+        for num in nums:
+            root = self.insert(root, num)
+        return root
 
-    def printPreOrder(self):
-        print(self.val, end=" ")
-        if self.left: self.left.printPreOrder()
-        if self.right: self.right.printPreOrder()
+    # Get the maximum height/depth of a binary tree
+    def maxHeight(self, root):
+        if root:
+            return 1 + max(self.maxHeight(root.left), self.maxHeight(root.right)) 
+        return 0
 
-    def printPostOrder(self):
-        if self.left: self.left.printPostOrder()
-        if self.right: self.right.printPostOrder()
-        print(self.val, end=" ")
+    def inOrderTraverse(self, root, output):
+        if not root: return
+        self.inOrderTraverse(root.left, output)
+        output.append(root.val)
+        self.inOrderTraverse(root.right, output)
+
+    def preOrderTraverse(self, root, output):
+        if not root: return
+        output.append(root.val)
+        self.preOrderTraverse(root.left, output)
+        self.preOrderTraverse(root.right, output)
+
+
+    def postOrderTraverse(self, root, output):
+        if not root: return
+        self.postOrderTraverse(root.left, output)
+        self.postOrderTraverse(root.right, output)
+        output.append(root.val)
 
     def bfs(self):
         dq = deque([self])
@@ -51,21 +68,27 @@ class TreeNode:
                 dq.appendleft(node.right)
 
 
+t = TreeNode(None)
 root = TreeNode(50)
-root.insert(root, 30)
-root.insert(root, 20)
-root.insert(root, 40)
-root.insert(root, 70)
-root.insert(root, 80)
+t.insert(root, 30)
+t.insert(root, 20)
+t.insert(root, 40)
+t.insert(root, 70)
+t.insert(root, 80)
 
-print("\nIn Order: ")
-root.printInOrder()
-print("\nPre Order: ")
-root.printPreOrder()
-print("\nPost Order: ")
-root.printPostOrder()
-print()
+output = []
+t.inOrderTraverse(root, output)
+print(output)
 
+newTree = t.constructBST([50,30,20,40,70,80])
+
+inOrder,preOrder,postOrder = [],[],[] 
+t.preOrderTraverse(newTree, preOrder)
+t.inOrderTraverse(root, inOrder)
+t.postOrderTraverse(root, postOrder)
+print("Pre Order:", preOrder)
+print("In Order:", inOrder) # Ascending Order
+print("Post Order:", postOrder)
 
 
 # https://stackoverflow.com/questions/26564646/space-complexity-of-iterative-vs-recursive-binary-search-tree
@@ -109,12 +132,6 @@ def binary_search_bisect(arr, target):
     else: 
         return -1
 
-
-# Get the maximum height/depth of a binary tree
-def maxHeight(node):
-    if node:
-        return 1 + max(maxHeight(node.left), maxHeight(node.right)) 
-    return 0
 
 arr = [2,3,4,10,40,50]
 print(binary_search_recursive(arr, 0, len(arr)-1, 40))

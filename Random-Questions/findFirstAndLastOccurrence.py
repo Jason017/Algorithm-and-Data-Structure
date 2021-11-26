@@ -41,7 +41,7 @@ print(last(arr, 0, len(arr)-1, target))
 def first(arr, target):
     low, high = 0, len(arr)-1
     res = -1
-     
+    
     while low <= high:
         mid = (low + high) // 2
         if arr[mid] > target:
@@ -56,7 +56,7 @@ def first(arr, target):
 def last(arr, target):
     low, high = 0, len(arr)-1
     res = -1
-
+    
     while low <= high:
         mid = (low + high) // 2
         if arr[mid] > target:
