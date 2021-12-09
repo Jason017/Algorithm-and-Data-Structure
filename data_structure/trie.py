@@ -1,43 +1,35 @@
-class TrieNode:
-    def __init__(self, char):
-        self.char = char
-        self.children = []
-        self.isEndOfWord = False
-        self.counter = 1
-        
+from collections import defaultdict
+
+class TrieNode(object):
+    def __init__(self):
+        self.nodes = defaultdict(TrieNode)
+        self.isEnd = False
+
 class Trie:
     def __init__(self):
-        self.root = self.getNode()
-    
-    def getNode(self):
-        return TrieNode()
-    
-    def char_to_index(self, ch):
-        return ord(ch) - ord('a')
+        self.root = TrieNode()
 
-    def insert(self, key):
-        pCrawl = self.root
-        length = len(key)
+    def insert(self, word):
+        curr = self.root
+        for char in word:
+            curr = curr.nodes[char]
+        curr.isEnd = True
 
-        for level in range(length):
-            index = self.charToIndex(key[level])
-
-            if not pCrawl.children[index]:
-                pCrawl.children[index] = self.getNode()
-            pCrawl = pCrawl.children[index]
-
-        pCrawl.isEndOfWord = True
-    
-    def search(self, key):
-        pCrawl = self.root
-        length = len(key)
-        for level in range(length):
-            index = self.charToIndex(key[level])
-            if not pCrawl.children[index]:
+    def search(self, word):
+        curr = self.root
+        for char in word:
+            if char not in curr.nodes:
                 return False
-            pCrawl = pCrawl.children[index]
-        
-        return pCrawl.isEndOfWord
+            curr = curr.nodes[char]
+        return curr.isEnd
+
+    def startsWith(self, prefix):
+        curr = self.root
+        for char in prefix:
+            if char not in curr.nodes:
+                return False
+            curr = curr.nodes[char]
+        return True
     
 def main():
     keys = ["the", "a", "there", "answer", "any", "by", "their"]
