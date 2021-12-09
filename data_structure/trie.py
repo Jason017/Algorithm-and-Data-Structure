@@ -1,8 +1,10 @@
 class TrieNode:
-    def __init__(self):
-        self.children = [None]*26
+    def __init__(self, char):
+        self.char = char
+        self.children = []
         self.isEndOfWord = False
-
+        self.counter = 1
+        
 class Trie:
     def __init__(self):
         self.root = self.getNode()

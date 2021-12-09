@@ -58,14 +58,14 @@ class TreeNode:
         output.append(root.val)
 
     def bfs(self):
-        dq = deque([self])
-        while dq:
-            node = dq.pop()
+        q = deque([self])
+        while q:
+            node = q.pop()
             print(node.val)
             if node.left:
-                dq.appendleft(node.left)
+                q.appendleft(node.left)
             if node.right:
-                dq.appendleft(node.right)
+                q.appendleft(node.right)
 
 
 t = TreeNode(None)

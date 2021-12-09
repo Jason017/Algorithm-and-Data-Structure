@@ -7,5 +7,6 @@ def maxSubarraySum(arr):
     return best_max
 
 arr = [5,10,-5,14,-3,8,4,1,-2,-1]
-arr2 = [-2,-3,4,-1,-2,1,5,-3]
+print(maxSubarraySum(arr))
+arr = [-2,-3,4,-1,-2,1,5,-3]
 print(maxSubarraySum(arr))

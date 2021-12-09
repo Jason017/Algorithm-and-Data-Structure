@@ -1,6 +1,6 @@
 import java.util.*;
 
-class Permutations {
+class permutations {
     public static List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> output = new ArrayList<>();
         dfs(nums, 0, output);
