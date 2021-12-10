@@ -1,12 +1,12 @@
 class CyclicRotation:
     def solution(A,K):
-        l = len(A)
-        arr = [0]*l
+        n = len(A)
+        arr = [0]*n
         
-        if K == 0 or l == 0:
+        if K == 0 or n == 0:
             return A
-        for i in range(l):
-            ind = (i+K)%l
+        for i in range(n):
+            ind = (i+K)%n
             arr[ind] = A[i]
         return arr
 

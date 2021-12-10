@@ -42,17 +42,17 @@ g = {
 #   / \  \
 #  D  E - F
 
-def dfs1(graph, node, visited=None):
+def dfs(graph, node, visited=None):
     if visited is None:
         visited = set()
     if node not in visited:
         print(node)
         visited.add(node)
         for neighbour in graph[node]:
-            dfs1(graph,neighbour,visited)
+            dfs(graph,neighbour,visited)
 
 print('2nd approach')
-dfs1(g, 'A')
+dfs(g, 'A')
 
 # 3rd approach
 
