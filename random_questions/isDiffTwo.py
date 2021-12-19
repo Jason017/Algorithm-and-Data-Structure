@@ -61,11 +61,11 @@ print(is_diff_two(list6, tgt1)) # False
 print(is_diff_two(list7, tgt4)) # False
 
 def compare_all_recur(lst, tgt, x=0, y=0):
-    if(len(lst)-1 == x and len(lst) == y):
+    if len(lst)-1 == x and len(lst) == y:
         return False
-    if(len(lst) == x or len(lst) == y):
+    if len(lst) == x or len(lst) == y:
         return compare_all_recur(lst, tgt, x+1, 0)
-    if(abs(lst[x] - lst[y])==tgt):
+    if abs(lst[x] - lst[y])==tgt:
         return True
     return compare_all_recur(lst, tgt, x, y+1)
 

@@ -1,4 +1,3 @@
-from math import log
 import bisect
 
 def findKLargest(nums, k):

@@ -12,9 +12,5 @@ def cyclicRotation(arr,k):
     return rotated
 
 # [1, 2, 3, 3, 6, 7, 7] => [6, 7, 7, 1, 2, 3, 3]
-
 arr = [1,2,3,3,6,7,7]
 print(cyclicRotation(arr,3))
-
-
-

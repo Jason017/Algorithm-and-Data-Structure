@@ -15,7 +15,7 @@ def longestCommonPrefix(arr, left, right):
     else:
         mid = (left + right)//2
         left_lcp = longestCommonPrefix(arr, left , mid)
-        right_lcp = longestCommonPrefix(arr, mid + 1,right)
+        right_lcp = longestCommonPrefix(arr, mid + 1, right)
         return commonPrefix(left_lcp, right_lcp)
 
 arr = ["geeksforgeeks", "geeks", "geek", "geezer"]

@@ -6,7 +6,7 @@ print(f'The factorial of {n} is {f(n):e}')
 def fact(n):
     res = 1
     for i in range(1,n+1):
-	    res = res * i
+        res *= i
     return res
 print(f'The factorial of {n} is {fact(n):e}')
 	

@@ -1,5 +1,5 @@
 # Floyd's tortoise and hare
-# Solve findDuplicate in O(n) time complexity and O(1) space complexity
+# O(N), O(1)
 def findDuplicate(nums):
     tortoise = nums[0]
     hare = nums[0]
@@ -10,13 +10,13 @@ def findDuplicate(nums):
             break
 
     ptr1 = nums[0]
-    ptr2 = tortoise
+    ptr2 = hare
     while ptr1 != ptr2:
         ptr1 = nums[ptr1]
         ptr2 = nums[ptr2]
     return ptr2
 
-# Using HashMap
+# HashMap
 def findDuplicate(nums):
     seen = set()
     for num in nums:
