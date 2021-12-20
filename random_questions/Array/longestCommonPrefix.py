@@ -10,10 +10,10 @@ def commonPrefix(left_str, right_str):
     return left_str[:n]
 
 def longestCommonPrefix(arr, left, right):
-    if (left == right):
+    if left == right:
         return arr[left]
     else:
-        mid = (left + right)//2
+        mid = (left + right) // 2
         left_lcp = longestCommonPrefix(arr, left , mid)
         right_lcp = longestCommonPrefix(arr, mid + 1, right)
         return commonPrefix(left_lcp, right_lcp)
@@ -37,7 +37,7 @@ def longestCommonPrefix(arr):
     prefix = ""   
     low, high = 0, index - 1
     while low <= high:
-        mid = int(low + (high - low) / 2)
+        mid = (high + low) // 2
         if allContainsPrefix(arr, arr[0], low, mid):
             prefix = prefix + arr[0][low:mid + 1]
             low = mid + 1
