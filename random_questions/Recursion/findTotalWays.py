@@ -12,8 +12,10 @@ def findTotalWays(arr, i, k):
             findTotalWays(arr, i + 1, k - arr[i]) + 
             findTotalWays(arr, i + 1, k + arr[i])) 
 
-arr1 = [-3, 1, 3, 5, 7], k1 = 6
-arr2 = [2, 3, -4, 4], k2 = 5
+arr = [-3, 1, 3, 5, 7]
+k = 6
+print(findTotalWays(arr, 0, k))
 
-print(findTotalWays(arr1, 0, k1))
-print(findTotalWays(arr2, 0, k2))
+arr = [2, 3, -4, 4]
+k = 5
+print(findTotalWays(arr, 0, k))
