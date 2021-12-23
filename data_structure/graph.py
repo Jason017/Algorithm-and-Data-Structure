@@ -7,8 +7,8 @@ class DAG:
     '''
     def __init__(self, path: List[int]) -> None:
         if not path: print("Invalid Input"); return 
-        self.size = len(path)
-        self.graph = {i:path[i] for i in range(self.size)}
+        self.vertices = len(path)
+        self.graph = {i:path[i] for i in range(self.vertices)}
 
 
     # BFS + Stack
@@ -74,7 +74,7 @@ class DAG:
 
 dag = DAG([[4,3,1],[3,2,4],[3],[4],[]])
 print("Graph:", dag.graph)
-print("Size:", dag.size)
+print("Size:", dag.vertices)
 print("All possible paths from src to dest (BFS):", dag.allPathsSrcDestBFS(0,4))
 print("All possible paths from src to dest (DFS):", dag.allPathsSrcDestDFS(0,4))
 print("All connected nodes from src (BFS):", dag.allConnectedNodesBFS(0))
@@ -86,27 +86,29 @@ class DG(DAG):
     '''
     Directed Graph (DG).
     '''
-    # BFS + Queue
+    # DFS
     def hasCycle(self):
-        degrees = [0] * self.size
-        for node in range(self.size):
-            for nei in self.graph[node]:
-                degrees[nei] += 1
+        visited = [0] * self.vertices
+        path = [0] * self.vertices
 
-        q = deque()
-        for node in range(len(degrees)):
-            if degrees[node] == 0:
-                q.append(node)
-        
-        cnt = 0
-        while q:
-            n = q.popleft()
-            for node in self.graph[n]:
-                degrees[node] -= 1
-                if degrees[node] == 0:
-                    q.append(node)
-            cnt += 1
-        return cnt != self.size
+        def dfs(vertex):
+            visited[vertex] = True
+            path[vertex] = True
+
+            for i in range(len(self.graph[vertex])):
+                adjVertex = self.graph[vertex][i]
+                if not visited[adjVertex] and dfs(adjVertex):
+                    return True
+                elif path[adjVertex]:
+                    return True
+
+            path[vertex] = False
+            return False
+
+        for i in range(self.vertices):
+            if dfs(i):
+                return True
+        return False
 
 
 g = DG([[1],[2],[3,4],[0],[2]]) 
