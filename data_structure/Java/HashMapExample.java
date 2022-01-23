@@ -1,6 +1,8 @@
-import java.util.*;
+package Java;
+import java.util.HashMap;
+import java.util.Map;
 
-public class hashmap {
+public class HashMapExample {
     public static void main(String[] args) {
         String[] strings = {"a", "b", "a", "f", "b", "a", "z"};
         System.out.println(wordCount(strings));

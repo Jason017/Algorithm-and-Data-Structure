@@ -1,13 +1,14 @@
-/*****************************************************************************
+package Java;
+
+/*
  * This is an implementation of a dynamic wraparound queue structure.
  * It implements the Iterator interface for traversing the queue..
- *****************************************************************************/
+*/
 
 import java.util.*;
 
 @SuppressWarnings("unchecked")
-public class ArrayQueue<AnyType> implements  QueueInterface<AnyType>, Iterable<AnyType>
-{
+public class ArrayQueue<AnyType> implements  QueueInterface<AnyType>, Iterable<AnyType> {
 	private static final int DEFAULT_CAPACITY = 10;
 	private int cap,	// total number of elements in the queue
                   cur,		// current number of elements
@@ -18,8 +19,7 @@ public class ArrayQueue<AnyType> implements  QueueInterface<AnyType>, Iterable<A
 	/**
 	*  Creates a new empty queue.
 	*/
-	public ArrayQueue ()
-	{
+	public ArrayQueue () {
 		cap = DEFAULT_CAPACITY;
 		A = (AnyType[]) new Object[DEFAULT_CAPACITY];
 		back = -1; front = 0;
@@ -30,8 +30,7 @@ public class ArrayQueue<AnyType> implements  QueueInterface<AnyType>, Iterable<A
 	*
 	*  @return true if the queue is empty and false otherwise
 	*/
-	public boolean isEmpty()
-	{
+	public boolean isEmpty() {
 		return cur == 0;
 	}
 
@@ -41,8 +40,7 @@ public class ArrayQueue<AnyType> implements  QueueInterface<AnyType>, Iterable<A
 	*
 	*  @param value the item to insert.
 	*/
-	public void enqueue (AnyType value)
-	{
+	public void enqueue (AnyType value) {
 		if (isFull()) doubleSize();
 
 		back++;
@@ -70,8 +68,7 @@ public class ArrayQueue<AnyType> implements  QueueInterface<AnyType>, Iterable<A
 	*  @return element at front of the queue
 	*  @throws NoSuchElementException if the queue is empty.
 	*/
-	public AnyType dequeue()
-	{
+	public AnyType dequeue() {
 		AnyType e = getFront();
 		A[front%cap] = null; // for garbage collection
 		front++;
@@ -83,8 +80,7 @@ public class ArrayQueue<AnyType> implements  QueueInterface<AnyType>, Iterable<A
 	*  Makes the queue physically empty.
 	*
 	*/
-	public void clear()
-	{
+	public void clear() {
 		for(int i = 0; i < cap; i++) A[i] = null;
 
 		cur = 0; back = -1; front = 0;
@@ -170,8 +166,7 @@ public class ArrayQueue<AnyType> implements  QueueInterface<AnyType>, Iterable<A
 		}
 	}
 
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 		ArrayQueue<String> Q = new ArrayQueue<String>();
 
 		String[] people = {"Tom", "Jay", "Pat", "Meghan", "Tom", "Mark","Kasey","John",
@@ -201,8 +196,7 @@ public class ArrayQueue<AnyType> implements  QueueInterface<AnyType>, Iterable<A
 
 	/**              QueueInterface           **/
 
-interface QueueInterface<AnyType>
-{
+interface QueueInterface<AnyType> {
 	/**
 	* Tests if the Queue is empty.
 	*/
@@ -232,16 +226,12 @@ interface QueueInterface<AnyType>
 
 	/**              QueueException           **/
 
-
-class QueueException extends RuntimeException
-{
-	public QueueException(String name)
-	{
+class QueueException extends RuntimeException {
+	public QueueException(String name) {
 		super(name);
 	}
 
-	public QueueException()
-	{
+	public QueueException() {
 		super();
 	}
 }

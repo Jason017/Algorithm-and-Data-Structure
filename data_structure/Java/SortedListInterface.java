@@ -1,3 +1,5 @@
+package Java;
+
 public interface SortedListInterface<T extends Comparable<? super T>>
 {
    /** Adds a new entry to this sorted list in its proper order.

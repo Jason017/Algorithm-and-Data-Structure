@@ -1,3 +1,5 @@
+package Java;
+
 public class Node<T> {
     private Node<T> next;
     private Node<T> previous;

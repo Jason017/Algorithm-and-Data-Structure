@@ -1,3 +1,5 @@
+package Java;
+
 public class DLListIterator<T> implements java.util.Iterator<T> {
     private Node<T> curr;
     private boolean canRemove;
@@ -39,8 +41,7 @@ public class DLListIterator<T> implements java.util.Iterator<T> {
     public T next() {
         Node<T> temp = curr.next();
         if (temp.getData() == null) {
-            throw new NoSuchElementException(
-                "There are no more nodes in the list.");
+            throw new IllegalStateException("There are no more nodes in the list.");
         }
         curr = curr.next();
         canRemove = true;

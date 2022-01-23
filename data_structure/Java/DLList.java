@@ -1,3 +1,5 @@
+package Java;
+
 public class DLList<E> implements Iterable<E> {
 
     private Node<E> head;
@@ -275,7 +277,7 @@ public class DLList<E> implements Iterable<E> {
         }
         if (this.getClass().equals(obj.getClass())) {
             @SuppressWarnings("unchecked")
-            DLList<E> other = (DLList<E>)obj;
+            DLList<E> other = (DLList<E>) obj;
             if (other.length == this.length) {
                 Node<E> curr = this.head.next();
                 Node<E> otherCurr = other.head.next();

@@ -1,4 +1,6 @@
-public class ArrayQueue<T> implements QueueInterface<T> {
+package Java;
+
+public class MyArrayQueue<T> implements QueueInterface<T> {
     private T[] contents;
     private int front;
     private int rear;
@@ -6,14 +8,12 @@ public class ArrayQueue<T> implements QueueInterface<T> {
     private int cap;
     private static final int DEFAULT_CAPACITY = 50;
 
-    public ArrayQueue() {
+    public MyArrayQueue() {
         this(DEFAULT_CAPACITY);
     }
 
-
     @SuppressWarnings("unchecked")
-    public ArrayQueue(int initialCapacity) {
-        // The new array contains null entries
+    public MyArrayQueue(int initialCapacity) {
         contents = (T[])new Object[initialCapacity + 1];
         front = 0;
         rear = contents.length - 1;
@@ -32,7 +32,7 @@ public class ArrayQueue<T> implements QueueInterface<T> {
     @Override
     public T dequeue() {
         T e = getFront();
-        contents[front%cap] = null; // for garbage collection
+        contents[front%cap] = null;
         front++;
         cur--;
         return e;
@@ -42,7 +42,7 @@ public class ArrayQueue<T> implements QueueInterface<T> {
     @Override
     public T getFront() {
         if (isEmpty()) {
-            throw new EmptyQueueException();
+            throw new IllegalStateException();
         }
         return contents[front];
     }
@@ -54,8 +54,7 @@ public class ArrayQueue<T> implements QueueInterface<T> {
     }
 
 
-    public boolean isFull()
-    {
+    public boolean isFull() {
         return cur == cap;
     }
 
@@ -68,8 +67,7 @@ public class ArrayQueue<T> implements QueueInterface<T> {
     }
 
 
-    private void doubleSize()
-    {
+    private void doubleSize() {
         T[] newArray = (T[]) new Object[2*cap];
 
         //copy items
@@ -81,47 +79,3 @@ public class ArrayQueue<T> implements QueueInterface<T> {
         cap *= 2;
     }
 }
-
-    T in = nodeToInsert.getData();
-    T fn = firstNode.getData();
-    if(firstNode == null || fn.compareTo(in) > 0) {
-        nodeToInsert.setNext(firstNode);
-        firstNode = nodeToInsert;
-    }
-
-    Node<T> temp = firstNode;
-    while(temp.next != null && temp.next.getData().compareTo(nodeToInsert.getData()) < 0){
-        temp = temp.next;
-    }
-    nodeToInsert.setNext(temp.next());
-    temp.setNext(nodeToInsert);
-
-
-    Node<T> sort = firstNode;
-    Node<T> unsort = firstNode.next;
-    sort.setNext(null);
-    
-    while(unsort.next() != null){
-        Node<T> temp = sort;
-        unsort = unsort.next();
-        insertIntoSorted(temp);
-    }
-
-
-    T data = nodeToInsert.getData();
-    Node<T> curr = firstNode;
-    Node<T> prev = null;
-    
-    while((curr != null) && data.compareTo(curr.getData()) > 0){
-        prev = curr;
-        curr = curr.next();
-    }
-    
-    if(prev != null){
-        prev.setNext(nodeToInsert);
-        nodeToInsert.setNext(curr);
-    }
-    else{
-        nodeToInsert.setNext(firstNode);   
-        firstNode = nodeToInsert;
-    }
