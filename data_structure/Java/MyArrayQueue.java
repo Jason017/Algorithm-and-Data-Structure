@@ -66,7 +66,7 @@ public class MyArrayQueue<T> implements QueueInterface<T> {
         }
     }
 
-
+    @SuppressWarnings("unchecked")
     private void doubleSize() {
         T[] newArray = (T[]) new Object[2*cap];
 
