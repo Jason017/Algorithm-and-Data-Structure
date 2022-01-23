@@ -1,27 +1,22 @@
 package Java;
 
-/*
- * This is an implementation of a dynamic wraparound queue structure.
- * It implements the Iterator interface for traversing the queue..
-*/
-
 import java.util.*;
 
 @SuppressWarnings("unchecked")
-public class ArrayQueue<AnyType> implements  QueueInterface<AnyType>, Iterable<AnyType> {
+public class ArrayQueue<T> implements QueueInterface<T>, Iterable<T> {
 	private static final int DEFAULT_CAPACITY = 10;
 	private int cap,	// total number of elements in the queue
-                  cur,		// current number of elements
-                  front,  	// front index
-                  back;		// back index
-	private AnyType[] A;
+                cur,		// current number of elements
+                front,  	// front index
+                back;		// back index
+	private T[] arr;
 
 	/**
 	*  Creates a new empty queue.
 	*/
 	public ArrayQueue () {
 		cap = DEFAULT_CAPACITY;
-		A = (AnyType[]) new Object[DEFAULT_CAPACITY];
+		arr = (T[]) new Object[DEFAULT_CAPACITY];
 		back = -1; front = 0;
 	}
 
@@ -40,11 +35,11 @@ public class ArrayQueue<AnyType> implements  QueueInterface<AnyType>, Iterable<A
 	*
 	*  @param value the item to insert.
 	*/
-	public void enqueue (AnyType value) {
+	public void enqueue (T value) {
 		if (isFull()) doubleSize();
 
 		back++;
-		A[back%cap] = value;
+		arr[back%cap] = value;
 		cur++;
 	}
 
@@ -54,12 +49,12 @@ public class ArrayQueue<AnyType> implements  QueueInterface<AnyType>, Iterable<A
 	*  @return element at front of the queue
 	*  @throws NoSuchElementException if the queue is empty.
 	*/
-	public AnyType getFront()
+	public T getFront()
 	{
 		if (isEmpty())
 			throw new QueueException();
 		else
-			return A[front%cap];
+			return arr[front%cap];
 	}
 
 	/**
@@ -68,12 +63,12 @@ public class ArrayQueue<AnyType> implements  QueueInterface<AnyType>, Iterable<A
 	*  @return element at front of the queue
 	*  @throws NoSuchElementException if the queue is empty.
 	*/
-	public AnyType dequeue() {
-		AnyType e = getFront();
-		A[front%cap] = null; // for garbage collection
+	public T dequeue() {
+		T t = getFront();
+		arr[front%cap] = null; // for garbage collection
 		front++;
 		cur--;
-		return e;
+		return t;
 	}
 
 	/**
@@ -81,7 +76,9 @@ public class ArrayQueue<AnyType> implements  QueueInterface<AnyType>, Iterable<A
 	*
 	*/
 	public void clear() {
-		for(int i = 0; i < cap; i++) A[i] = null;
+		for(int i = 0; i < cap; i++) {
+            arr[i] = null;
+        }
 
 		cur = 0; back = -1; front = 0;
 	}
@@ -99,13 +96,13 @@ public class ArrayQueue<AnyType> implements  QueueInterface<AnyType>, Iterable<A
 	*/
 	private void doubleSize()
 	{
-		AnyType[] newArray = (AnyType[]) new Object[2*cap];
+		T[] newArray = (T[]) new Object[2*cap];
 
 		//copy items
 		for(int i = front; i <= back; i ++)
-			newArray[i-front] = A[i%cap];
+			newArray[i-front] = arr[i%cap];
 
-		A = newArray;
+		arr = newArray;
 		front = 0;
 		back = cur-1;
 		cap *= 2;
@@ -120,21 +117,18 @@ public class ArrayQueue<AnyType> implements  QueueInterface<AnyType>, Iterable<A
 	*
 	* @throws UnsupportedOperationException if you remove using the iterator
 	*/
-	public Iterator<AnyType> iterator( )
-	{
-		return new QueueIterator( );
+	public Iterator<T> iterator() {
+		return new QueueIterator();
 	}
 
-	private class QueueIterator implements Iterator<AnyType>
-	{
+	private class QueueIterator implements Iterator<T> {
 		private int index;      //traversal index
 
 
 		/**
 		*  Create a new empty iterator.
 		*/
-		public QueueIterator()
-		{
+		public QueueIterator() {
 			index = front;
 		}
 
@@ -142,8 +136,7 @@ public class ArrayQueue<AnyType> implements  QueueInterface<AnyType>, Iterable<A
 		*  Tests if there are more items in the Queue
 		*
 		*/
-		public boolean hasNext( )
-		{
+		public boolean hasNext() {
 			return index <= back;
 		}
 
@@ -151,42 +144,40 @@ public class ArrayQueue<AnyType> implements  QueueInterface<AnyType>, Iterable<A
 		*  Returns the next item in the Queue.
 		*
 		*/
-		public AnyType next( )
-		{
-			return A[(index++)%cap];
+		public T next() {
+			return arr[(index++)%cap];
 		}
 
 		/**
 		*  Remove is not implemented
 		*
 		*/
-		public void remove( )
-		{
+		public void remove() {
 			throw new java.lang.UnsupportedOperationException();
 		}
 	}
 
 	public static void main(String[] args) {
-		ArrayQueue<String> Q = new ArrayQueue<String>();
+		ArrayQueue<String> queue = new ArrayQueue<String>();
 
-		String[] people = {"Tom", "Jay", "Pat", "Meghan", "Tom", "Mark","Kasey","John",
-		"Helen"};
+		String[] people = {"Tom", "Jay", "Pat", "Meghan", "Tom", "Mark", "Kasey", "John", "Helen"};
 
 		for (int i = 0; i < people.length; i++)
-			Q.enqueue(people[i]);
+			queue.enqueue(people[i]);
 
-		for (int i = 0; i < 2; i++) Q.dequeue();
+		for (int i = 0; i < 2; i++) {
+            queue.dequeue();
+        }
 
-		Iterator itr = Q.iterator();
+		Iterator itr = queue.iterator();
 		while(itr.hasNext())
 			System.out.println(itr.next());
 
 		System.out.println("=================");
+		queue.enqueue("Mike");
+		queue.enqueue("Bev");
 
-		Q.enqueue("Mike");
-		Q.enqueue("Bev");
-
-		itr = Q.iterator();
+		itr = queue.iterator();
 		while(itr.hasNext())
 			System.out.print(itr.next() + " ");
 
@@ -196,7 +187,7 @@ public class ArrayQueue<AnyType> implements  QueueInterface<AnyType>, Iterable<A
 
 	/**              QueueInterface           **/
 
-interface QueueInterface<AnyType> {
+interface QueueInterface<T> {
 	/**
 	* Tests if the Queue is empty.
 	*/
@@ -205,17 +196,17 @@ interface QueueInterface<AnyType> {
 	/**
 	*  Removes and returns the front item
 	*/
-	public AnyType dequeue() throws QueueException;
+	public T dequeue() throws QueueException;
 
 	/**
 	*  Returns the front item without its removal
 	*/
-	public AnyType getFront() throws QueueException;
+	public T getFront() throws QueueException;
 
 	/**
 	* Inserts an item to teh back
 	*/
-	public void enqueue(AnyType e);
+	public void enqueue(T t);
 
 	/**
 	* Removes all items from the Queue.
