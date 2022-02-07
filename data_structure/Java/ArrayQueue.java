@@ -17,7 +17,8 @@ public class ArrayQueue<T> implements QueueInterface<T>, Iterable<T> {
 	public ArrayQueue () {
 		cap = DEFAULT_CAPACITY;
 		arr = (T[]) new Object[DEFAULT_CAPACITY];
-		back = -1; front = 0;
+		back = -1; 
+        front = 0;
 	}
 
 	/**
