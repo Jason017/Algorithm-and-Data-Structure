@@ -1,21 +1,22 @@
 from bisect import bisect_left
 from collections import deque
 
+
 class TreeNode:
     def __init__(self, val):
         self.val = val
         self.left = None
         self.right = None
 
-
     # Get the maximum height/depth of a binary tree
     def maxHeight(self, root):
         if root:
-            return 1 + max(self.maxHeight(root.left), self.maxHeight(root.right)) 
+            return 1 + max(self.maxHeight(root.left), self.maxHeight(root.right))
         return 0
 
     def maxHeight(self, root):
-        if not root: return 0
+        if not root:
+            return 0
 
         q = deque([root])
         depth = 0
@@ -30,11 +31,11 @@ class TreeNode:
             depth += 1
         return depth
 
-
     # Deep copy a tree
     # Similar Approach: LeetCode 133. Clone Graph
     def cloneTree(self, root):
-        if not root: return None
+        if not root:
+            return None
         oldToNew = {root: TreeNode(root.val)}
 
         def dfs(node):
@@ -51,16 +52,17 @@ class TreeNode:
         dfs(root)
         return oldToNew[root]
 
-
     # Inorder Traversal of Binary Tree
     def inOrderRecur(self, root, output):
-        if not root: return
+        if not root:
+            return
         self.inOrderRecur(root.left, output)
         output.append(root.val)
         self.inOrderRecur(root.right, output)
 
     def inOrderIter(self, root):
-        if not root: return []
+        if not root:
+            return []
 
         curr = root
         stack = []
@@ -76,20 +78,21 @@ class TreeNode:
                 curr = curr.right
         return output
 
-
     # Preorder Traversal of Binary Tree
     def preOrderRecur(self, root, output):
-        if not root: return
+        if not root:
+            return
         output.append(root.val)
         self.preOrderRecur(root.left, output)
         self.preOrderRecur(root.right, output)
-    
+
     def preOrderIter(self, root):
-        if not root: return []
-    
+        if not root:
+            return []
+
         stack = [root]
         output = []
-    
+
         while stack:
             curr = stack.pop()
             output.append(curr.val)
@@ -99,17 +102,18 @@ class TreeNode:
                 stack.append(curr.left)
         return output
 
-
     # Postorder Traversal of Binary Tree
     def postOrderRecur(self, root, output):
-        if not root: return
+        if not root:
+            return
         self.postOrderRecur(root.left, output)
         self.postOrderRecur(root.right, output)
         output.append(root.val)
 
     # https://leetcode.com/problems/binary-tree-postorder-traversal/discuss/45648/three-ways-of-iterative-postorder-traversing-easy-explanation
     def postOrderIter(self, root):
-        if not root: return []
+        if not root:
+            return []
 
         curr = root
         prev = TreeNode(None)
@@ -130,7 +134,6 @@ class TreeNode:
                 else:
                     curr = curr.right
         return output
-
 
 
 class BST(TreeNode):
@@ -179,10 +182,10 @@ bst.insert(root, 70)
 bst.insert(root, 80)
 
 # Test Iterative and Recursive Traversal
-newTree = bst.construct([50,30,20,40,70,80])
+newTree = bst.construct([50, 30, 20, 40, 70, 80])
 print(bst.inOrderIter(newTree))
 
-inOrder,preOrder,postOrder = [],[],[] 
+inOrder, preOrder, postOrder = [], [], []
 bst.preOrderRecur(root, preOrder)
 bst.inOrderRecur(root, inOrder)
 bst.postOrderRecur(root, postOrder)
@@ -190,7 +193,7 @@ print("Pre Order Iterative Traversal:", bst.preOrderIter(root))
 print("Pre Order Recursive Traversal:", preOrder, "\n")
 
 print("In Order Iterative Traversal:", bst.inOrderIter(root))
-print("In Order Recursive Traversal:", inOrder, "\n") # Ascending Order
+print("In Order Recursive Traversal:", inOrder, "\n")  # Ascending Order
 
 print("Post Order Iterative Traversal:", bst.postOrderIter(root))
 print("Post Order Recursive Traversal:", postOrder, "\n")
@@ -213,6 +216,7 @@ def binary_search_recursive(arr, low, high, target):
             return binary_search_recursive(arr, mid+1, high, target)
     return -1
 
+
 # Binary Search iteratively
 # O(log(n)) O(1)
 def binary_search_iterative(arr, target):
@@ -231,15 +235,14 @@ def binary_search_iterative(arr, target):
 # Binary Search with Bisect
 # O(log(n)) O(1)
 def binary_search_bisect(arr, target):
-    idx = bisect_left(arr, target) 
-    if idx != len(arr) and arr[idx] == target: 
+    idx = bisect_left(arr, target)
+    if idx != len(arr) and arr[idx] == target:
         return idx
-    else: 
+    else:
         return -1
 
 
-arr = [2,3,4,10,40,50]
+arr = [2, 3, 4, 10, 40, 50]
 print(binary_search_recursive(arr, 0, len(arr)-1, 40))
 print(binary_search_iterative(arr, 40))
 print(binary_search_bisect(arr, 40))
-
