@@ -166,9 +166,8 @@ public class Sort {
 
     public static void buildHeap(int[] arr) {
         int n = arr.length;
-        int lastNodeIdx = n - 1;
-        int parent = (lastNodeIdx - 1) / 2;
-        for (int i = parent; i >= 0; i--) {
+        int parentIdx = (n - 1) / 2;
+        for (int i = parentIdx; i >= 0; i--) {
             heapify(arr, n, i);
         }
     }
