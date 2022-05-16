@@ -8,8 +8,82 @@ import java.util.Arrays;
  */
 public class SortAlgorithm {
 
+    private static int[] arr;
+    private static int n;
+
     public static void main(String[] args) {
-        int[] arr = { 4, 10, 3, 5, 1, 2 };
+
+        // // heapify
+        // System.out.println("Heap Sort Test");
+        // arr = new int[] { 4, 10, 3, 5, 1, 2 };
+        // n = arr.length;
+        // heapify(arr, n, 0);
+        // System.out.println(">>> heapify");
+        // for (int i = 0; i < n; i++) {
+        // System.out.println(arr[i]);
+        // }
+
+        // // buildHeap
+        // arr = new int[] { 2, 5, 3, 1, 10, 4 };
+        // n = arr.length;
+        // buildHeap(arr);
+        // System.out.println(">>> buildHeap");
+        // for (int i = 0; i < n; i++) {
+        // System.out.println(arr[i]);
+        // }
+
+        // // heapSort
+        // arr = new int[] { 2, 5, 3, 1, 10, 4 };
+        // n = arr.length;
+        // heapSort(arr);
+        // System.out.println(">>> heapSort");
+        // for (int i = 0; i < n; i++) {
+        // System.out.println(arr[i]);
+        // }
+
+        // // radixSort
+        // System.out.println("Radix Sort Test");
+        // arr = new int[] { 2, 5, 3, 1, 10, 4 };
+        // n = arr.length;
+        // int maxDigit = getMaxDigit(arr);
+        // arr = radixSort(arr, maxDigit);
+        // for (int i = 0; i < n; i++) {
+        // System.out.println(arr[i]);
+        // }
+
+        // // mergeSort
+        // System.out.println("Merge Sort Test");
+        // arr = new int[] { 6, 7, 9, 13, 21, 45, 101, 102 };
+        // n = arr.length;
+        // mergeSort(arr, 0, n - 1);
+        // for (int i = 0; i < n; i++) {
+        // System.out.println(arr[i]);
+        // }
+
+        // shellSort
+        arr = new int[] { 2, 5, 3, 1, 10, 4 };
+        n = arr.length;
+        shellSort(arr);
+        for (int i = 0; i < n; i++) {
+            System.out.println(arr[i]);
+        }
+
+        // // selectionSort
+        // System.out.println("Selection Sort Test");
+        // arr = new int[] { 2, 5, 3, 1, 10, 4 };
+        // n = arr.length;
+        // selectionSort(arr);
+        // for (int i = 0; i < n; i++) {
+        // System.out.println(arr[i]);
+        // }
+
+        // // insertionSort
+        // System.out.println("Insertion Sort Test");
+        // arr = new int[] { 2, 5, 3, 1, 10, 4 };
+        // insertionSort(arr);
+        // for (int i = 0; i < n; i++) {
+        // System.out.println(arr[i]);
+        // }
     }
 
     public static void swap(int[] arr, int i, int j) {
@@ -84,11 +158,13 @@ public class SortAlgorithm {
                     swap(arr, j, j + mid);
                     j -= mid;
                 }
+                System.out.println("j: " + j);
             }
             mid /= 2;
         }
     }
 
+    // --------------------------merge sort--------------------------
     public static void merge(int arr[], int start, int mid, int end) {
         int temp[] = new int[end - start + 1];
         int i = start, j = mid + 1, k = 0;

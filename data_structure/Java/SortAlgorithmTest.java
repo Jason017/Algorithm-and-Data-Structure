@@ -16,7 +16,7 @@ public class SortAlgorithmTest {
         System.out.println("Heap Sort Test");
         arr = new int[] { 4, 10, 3, 5, 1, 2 };
         n = arr.length;
-        Sort.heapify(arr, n, 0);
+        SortAlgorithm.heapify(arr, n, 0);
         System.out.println(">>> heapify");
         for (int i = 0; i < n; i++) {
             System.out.println(arr[i]);
@@ -25,7 +25,7 @@ public class SortAlgorithmTest {
         // buildHeap
         arr = new int[] { 2, 5, 3, 1, 10, 4 };
         n = arr.length;
-        Sort.buildHeap(arr);
+        SortAlgorithm.buildHeap(arr);
         System.out.println(">>> buildHeap");
         for (int i = 0; i < n; i++) {
             System.out.println(arr[i]);
@@ -34,7 +34,7 @@ public class SortAlgorithmTest {
         // heapSort
         arr = new int[] { 2, 5, 3, 1, 10, 4 };
         n = arr.length;
-        Sort.heapSort(arr);
+        SortAlgorithm.heapSort(arr);
         System.out.println(">>> heapSort");
         for (int i = 0; i < n; i++) {
             System.out.println(arr[i]);
@@ -44,8 +44,8 @@ public class SortAlgorithmTest {
         System.out.println("Radix Sort Test");
         arr = new int[] { 2, 5, 3, 1, 10, 4 };
         n = arr.length;
-        int maxDigit = Sort.getMaxDigit(arr);
-        arr = Sort.radixSort(arr, maxDigit);
+        int maxDigit = SortAlgorithm.getMaxDigit(arr);
+        arr = SortAlgorithm.radixSort(arr, maxDigit);
         for (int i = 0; i < n; i++) {
             System.out.println(arr[i]);
         }
@@ -54,7 +54,7 @@ public class SortAlgorithmTest {
         System.out.println("Merge Sort Test");
         arr = new int[] { 6, 7, 9, 13, 21, 45, 101, 102 };
         n = arr.length;
-        Sort.mergeSort(arr, 0, n - 1);
+        SortAlgorithm.mergeSort(arr, 0, n - 1);
         for (int i = 0; i < n; i++) {
             System.out.println(arr[i]);
         }
@@ -63,7 +63,7 @@ public class SortAlgorithmTest {
         System.out.println("Shell Sort Test");
         arr = new int[] { 2, 5, 3, 1, 10, 4 };
         n = arr.length;
-        Sort.shellSort(arr);
+        SortAlgorithm.shellSort(arr);
         for (int i = 0; i < n; i++) {
             System.out.println(arr[i]);
         }
@@ -72,7 +72,7 @@ public class SortAlgorithmTest {
         System.out.println("Selection Sort Test");
         arr = new int[] { 2, 5, 3, 1, 10, 4 };
         n = arr.length;
-        Sort.selectionSort(arr);
+        SortAlgorithm.selectionSort(arr);
         for (int i = 0; i < n; i++) {
             System.out.println(arr[i]);
         }
@@ -80,7 +80,7 @@ public class SortAlgorithmTest {
         // insertionSort
         System.out.println("Insertion Sort Test");
         arr = new int[] { 2, 5, 3, 1, 10, 4 };
-        Sort.insertionSort(arr);
+        SortAlgorithm.insertionSort(arr);
         for (int i = 0; i < n; i++) {
             System.out.println(arr[i]);
         }
