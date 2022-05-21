@@ -1,6 +1,12 @@
 import java.util.*;
 
-class Permutations {
+public class Permutations {
+
+    public static void main(String args[]) {
+        int[] nums = new int[] { 1, 2, 3 };
+        System.out.println(permute(nums));
+    }
+
     public static List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> output = new ArrayList<>();
         dfs(nums, 0, output);
@@ -27,10 +33,5 @@ class Permutations {
         int tmp = nums[i];
         nums[i] = nums[j];
         nums[j] = tmp;
-    }
-
-    public static void main(String args[]) {
-        int[] nums = new int[] { 1, 2, 3 };
-        System.out.println(permute(nums));
     }
 }
