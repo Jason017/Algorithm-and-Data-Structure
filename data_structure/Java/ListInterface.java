@@ -1,5 +1,3 @@
-package Java;
-
 /**
  * An interface for the ADT list. Entries in a list have positions that begin
  * with 1.
@@ -14,7 +12,7 @@ public interface ListInterface<T> {
      * are unaffected. The list's size is increased by 1.
      * 
      * @param newEntry
-     *            The object to be added as a new entry.
+     *                 The object to be added as a new entry.
      */
     public void add(T newEntry);
 
@@ -24,13 +22,14 @@ public interface ListInterface<T> {
      * position within the list. The list's size is increased by 1.
      * 
      * @param newPosition
-     *            An integer that specifies the desired position of the new
-     *            entry.
+     *                    An integer that specifies the desired position of the new
+     *                    entry.
      * @param newEntry
-     *            The object to be added as a new entry.
+     *                    The object to be added as a new entry.
      * @throws IndexOutOfBoundsException
-     *             if either newPosition less than 0 or newPosition greater than
-     *             getLength() + 1.
+     *                                   if either newPosition less than 0 or
+     *                                   newPosition greater than
+     *                                   getLength() + 1.
      */
     public void add(int newPosition, T newEntry);
 
@@ -40,12 +39,14 @@ public interface ListInterface<T> {
      * position within the list, and the list's size is decreased by 1.
      * 
      * @param givenPosition
-     *            An integer that indicates the position of the entry to be
-     *            removed.
+     *                      An integer that indicates the position of the entry to
+     *                      be
+     *                      removed.
      * @return A reference to the removed entry.
      * @throws IndexOutOfBoundsException
-     *             if either givenPosition less than 0 or givenPosition greater
-     *             than getLength().
+     *                                   if either givenPosition less than 0 or
+     *                                   givenPosition greater
+     *                                   than getLength().
      */
     public T remove(int givenPosition);
 
@@ -56,15 +57,17 @@ public interface ListInterface<T> {
      * Replaces the entry at a given position in this list.
      * 
      * @param givenPosition
-     *            An integer that indicates the position of the entry to be
-     *            replaced.
+     *                      An integer that indicates the position of the entry to
+     *                      be
+     *                      replaced.
      * @param newEntry
-     *            The object that will replace the entry at the position
-     *            givenPosition.
+     *                      The object that will replace the entry at the position
+     *                      givenPosition.
      * @return The original entry that was replaced.
      * @throws IndexOutOfBoundsException
-     *             if either givenPosition less than 0 or givenPosition greater
-     *             than getLength().
+     *                                   if either givenPosition less than 0 or
+     *                                   givenPosition greater
+     *                                   than getLength().
      */
     public T replace(int givenPosition, T newEntry);
 
@@ -72,11 +75,13 @@ public interface ListInterface<T> {
      * Retrieves the entry at a given position in this list.
      * 
      * @param givenPosition
-     *            An integer that indicates the position of the desired entry.
+     *                      An integer that indicates the position of the desired
+     *                      entry.
      * @return A reference to the indicated entry.
      * @throws IndexOutOfBoundsException
-     *             if either givenPosition less than 0 or givenPosition greater
-     *             than getLength().
+     *                                   if either givenPosition less than 0 or
+     *                                   givenPosition greater
+     *                                   than getLength().
      */
     public T getEntry(int givenPosition);
 
@@ -93,7 +98,7 @@ public interface ListInterface<T> {
      * Sees whether this list contains a given entry.
      * 
      * @param anEntry
-     *            The object that is the desired entry.
+     *                The object that is the desired entry.
      * @return True if the list contains anEntry, or false if not.
      */
     public boolean contains(T anEntry);

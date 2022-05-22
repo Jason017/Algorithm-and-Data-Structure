@@ -1,5 +1,3 @@
-package Java;
-
 public class DLList<E> implements Iterable<E> {
     private Node<E> head;
     private Node<E> tail;
@@ -16,7 +14,6 @@ public class DLList<E> implements Iterable<E> {
         length = 0;
     }
 
-
     /**
      * Gets the head node of the list.
      * 
@@ -26,17 +23,15 @@ public class DLList<E> implements Iterable<E> {
         return head;
     }
 
-
     /**
      * Sets the length of the list.
      * 
      * @param length
-     *            The new length of the list.
+     *               The new length of the list.
      */
     public void setLength(int length) {
         this.length = length;
     }
-
 
     /**
      * Gets the length of the list.
@@ -47,15 +42,14 @@ public class DLList<E> implements Iterable<E> {
         return length;
     }
 
-
     /**
      * Adds a new entry to the list.
      * 
      * @param data
-     *            The data to be stored in the node.
+     *             The data to be stored in the node.
      * 
      * @throws IllegalArgumentException
-     *             if the parameter is null.
+     *                                  if the parameter is null.
      */
     public void add(E data) {
         if (data == null) {
@@ -67,8 +61,7 @@ public class DLList<E> implements Iterable<E> {
             tail.setPrevious(toAdd);
             toAdd.setNext(tail);
             toAdd.setPrevious(head);
-        }
-        else {
+        } else {
             Node<E> before = tail.previous();
             before.setNext(toAdd);
             toAdd.setPrevious(before);
@@ -78,19 +71,18 @@ public class DLList<E> implements Iterable<E> {
         length++;
     }
 
-
     /**
      * Adds an entry to a specified position of the list.
      * 
      * @param data
-     *            The data to be added.
+     *                 The data to be added.
      * @param position
-     *            The position for the data to be added at.
+     *                 The position for the data to be added at.
      * @throws IndexOutOfBoundsException
-     *             if the position is out of bounds.
+     *                                   if the position is out of bounds.
      * 
      * @throws IllegalArgumentException
-     *             if the data to be added is null.
+     *                                   if the data to be added is null.
      */
     public void addToPosition(int position, E data) {
         if (position < 0 || length < position) {
@@ -102,8 +94,7 @@ public class DLList<E> implements Iterable<E> {
 
         if (position == length) {
             add(data);
-        }
-        else {
+        } else {
             Node<E> after = getNodeAt(position);
             Node<E> toAdd = new Node<E>(data);
             toAdd.setPrevious(after.previous());
@@ -115,12 +106,11 @@ public class DLList<E> implements Iterable<E> {
 
     }
 
-
     /**
      * Gets the node at the given position.
      * 
      * @param position
-     *            The position.
+     *                 The position.
      * 
      * @return The node at that position.
      */
@@ -132,7 +122,6 @@ public class DLList<E> implements Iterable<E> {
         return curr;
     }
 
-
     /**
      * Determines if the list is empty.
      * 
@@ -142,12 +131,11 @@ public class DLList<E> implements Iterable<E> {
         return length == 0;
     }
 
-
     /**
      * Removes the entry containing the given data from the list.
      * 
      * @param data
-     *            The data of the entry to be removed.
+     *             The data of the entry to be removed.
      * 
      * @return True if the node is removed and false if not.
      */
@@ -165,12 +153,11 @@ public class DLList<E> implements Iterable<E> {
         return false;
     }
 
-
     /**
      * Gets the position of the node storing the given data.
      * 
      * @param data
-     *            The data of the node to be found.
+     *             The data of the node to be found.
      * 
      * @return The integer position of the node. -1 if it is not found.
      */
@@ -187,19 +174,18 @@ public class DLList<E> implements Iterable<E> {
         return -1;
     }
 
-
     /**
      * Gets the entry at the given position.
      * 
      * @param position
-     *            The position.
+     *                 The position.
      * 
      * @return The data stored in the node at that position.
      */
     public E getAnEntry(int position) {
         if (position < 0 || length <= position) {
             throw new IndexOutOfBoundsException(
-                "There is no entry at that index");
+                    "There is no entry at that index");
         }
         Node<E> curr = head.next();
         for (int i = 0; i < position; i++) {
@@ -208,12 +194,11 @@ public class DLList<E> implements Iterable<E> {
         return curr.getData();
     }
 
-
     /**
      * Determines if the list contains the data point.
      * 
      * @param data
-     *            The data point.
+     *             The data point.
      * 
      * @return True if the list contains it and false if not.
      */
@@ -221,7 +206,6 @@ public class DLList<E> implements Iterable<E> {
         int position = getPosition(data);
         return position != -1;
     }
-
 
     /**
      * Clears the DLList.
@@ -233,7 +217,6 @@ public class DLList<E> implements Iterable<E> {
         tail.setPrevious(head);
         length = 0;
     }
-
 
     /**
      * Converts the DLList to a String.
@@ -257,7 +240,6 @@ public class DLList<E> implements Iterable<E> {
         builder.append("}");
         return builder.toString();
     }
-
 
     /**
      * Determines if two DLList objects are equal.
@@ -292,7 +274,6 @@ public class DLList<E> implements Iterable<E> {
         }
         return false;
     }
-
 
     /**
      * Creates an Iterator.

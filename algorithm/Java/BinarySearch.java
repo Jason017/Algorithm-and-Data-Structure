@@ -26,12 +26,12 @@ public class BinarySearch {
         System.out.println(binarySearch2_1(nums, target)); // 1
         System.out.println(binarySearch2_2(nums, target)); // 1
 
-        // nums = new int[] { 1, 2, 2, 2, 3 };
-        // target = 2;
-        // System.out.println(binarySearch1_1(nums, target)); // 2
-        // System.out.println(binarySearch1_2(nums, target)); // 2
-        // System.out.println(binarySearch2_1(nums, target)); // 1
-        // System.out.println(binarySearch2_2(nums, target)); // 1
+        nums = new int[] { 1, 2, 2, 2, 3 };
+        target = 2;
+        System.out.println(binarySearch1_1(nums, target)); // 2
+        System.out.println(binarySearch1_2(nums, target)); // 2
+        System.out.println(binarySearch2_1(nums, target)); // 1
+        System.out.println(binarySearch2_2(nums, target)); // 1
 
         System.out.println(right_bound(nums, target)); // 3
         System.out.println(left_bound(nums, target)); // 1

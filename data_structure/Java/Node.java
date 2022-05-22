@@ -1,5 +1,3 @@
-package Java;
-
 public class Node<T> {
     private Node<T> next;
     private Node<T> previous;
@@ -9,34 +7,31 @@ public class Node<T> {
      * Creates a new node with the given data
      *
      * @param d
-     *            the data to put inside the node
+     *          the data to put inside the node
      */
     public Node(T d) {
         data = d;
     }
 
-
     /**
      * Sets the node after this node
      *
      * @param n
-     *            the node after this one
+     *          the node after this one
      */
     public void setNext(Node<T> n) {
         next = n;
     }
 
-
     /**
      * Sets the node before this one
      *
      * @param n
-     *            the node before this one
+     *          the node before this one
      */
     public void setPrevious(Node<T> n) {
         previous = n;
     }
-
 
     /**
      * Gets the next node
@@ -47,7 +42,6 @@ public class Node<T> {
         return next;
     }
 
-
     /**
      * Gets the node before this one
      *
@@ -56,7 +50,6 @@ public class Node<T> {
     public Node<T> previous() {
         return previous;
     }
-
 
     /**
      * Gets the data in the node

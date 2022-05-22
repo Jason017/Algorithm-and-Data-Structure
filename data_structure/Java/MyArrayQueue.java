@@ -1,5 +1,3 @@
-package Java;
-
 public class MyArrayQueue<T> implements QueueInterface<T> {
     private T[] contents;
     private int front;
@@ -14,30 +12,28 @@ public class MyArrayQueue<T> implements QueueInterface<T> {
 
     @SuppressWarnings("unchecked")
     public MyArrayQueue(int initialCapacity) {
-        contents = (T[])new Object[initialCapacity + 1];
+        contents = (T[]) new Object[initialCapacity + 1];
         front = 0;
         rear = contents.length - 1;
     }
 
-
     @Override
     public void enqueue(T newEntry) {
-        if (isFull()) doubleSize();
+        if (isFull())
+            doubleSize();
         rear++;
-        contents[rear%cap] = newEntry;
+        contents[rear % cap] = newEntry;
         cur++;
     }
-
 
     @Override
     public T dequeue() {
         T e = getFront();
-        contents[front%cap] = null;
+        contents[front % cap] = null;
         front++;
         cur--;
         return e;
     }
-
 
     @Override
     public T getFront() {
@@ -47,17 +43,14 @@ public class MyArrayQueue<T> implements QueueInterface<T> {
         return contents[front];
     }
 
-
     @Override
     public boolean isEmpty() {
         return (((rear + 1) % contents.length) == front);
     }
 
-
     public boolean isFull() {
         return cur == cap;
     }
-
 
     @Override
     public void clear() {
@@ -68,14 +61,14 @@ public class MyArrayQueue<T> implements QueueInterface<T> {
 
     @SuppressWarnings("unchecked")
     private void doubleSize() {
-        T[] newArray = (T[]) new Object[2*cap];
+        T[] newArray = (T[]) new Object[2 * cap];
 
-        //copy items
-        for(int i = front; i <= rear; i ++)
-            newArray[i-front] = contents[i%cap];
+        // copy items
+        for (int i = front; i <= rear; i++)
+            newArray[i - front] = contents[i % cap];
         contents = newArray;
         front = 0;
-        rear = cur-1;
+        rear = cur - 1;
         cap *= 2;
     }
 }

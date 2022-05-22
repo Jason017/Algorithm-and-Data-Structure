@@ -1,4 +1,4 @@
-package Java;
+import java.util.*;
 
 public class DLListIterator<T> implements java.util.Iterator<T> {
     private Node<T> curr;
@@ -9,14 +9,13 @@ public class DLListIterator<T> implements java.util.Iterator<T> {
      * Creates a new DLListIterator.
      * 
      * @param list
-     *            the input DLList
+     *             the input DLList
      */
     public DLListIterator(DLList<T> list) {
         this.list = list;
         curr = this.list.head();
         canRemove = false;
     }
-
 
     /**
      * Checks if there are more items in the list.
@@ -28,14 +27,13 @@ public class DLListIterator<T> implements java.util.Iterator<T> {
         return curr.next().getData() != null;
     }
 
-
     /**
      * Gets the next value in the list.
      * 
      * @return The next value in the list.
      * 
      * @throws NoSuchElementException
-     *             if there are no more nodes in the list.
+     *                                if there are no more nodes in the list.
      */
     @Override
     public T next() {
@@ -48,13 +46,13 @@ public class DLListIterator<T> implements java.util.Iterator<T> {
         return temp.getData();
     }
 
-
     /**
      * Removes the most recent object returned by next().
      * 
      * @throws IllegalStateException
-     *             if next() has not been called yet or the object has
-     *             already been removed.
+     *                               if next() has not been called yet or the object
+     *                               has
+     *                               already been removed.
      */
     public void remove() {
         if (canRemove) {
@@ -62,10 +60,9 @@ public class DLListIterator<T> implements java.util.Iterator<T> {
             curr.next().setPrevious(curr.previous());
             canRemove = false;
             list.setLength(list.getLength() - 1);
-        }
-        else {
+        } else {
             throw new IllegalStateException(
-                "The next() method must be called to remove an object.");
+                    "The next() method must be called to remove an object.");
         }
     }
 }

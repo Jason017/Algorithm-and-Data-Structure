@@ -1,4 +1,4 @@
-package Java;
+import java.util.*;
 
 public class LinkedList {
     private Node head;
@@ -6,6 +6,7 @@ public class LinkedList {
     private static class Node {
         private int val;
         private Node next;
+
         Node(int x) {
             this.val = x;
             this.next = null;
@@ -40,7 +41,7 @@ public class LinkedList {
     public static void main(String[] args) {
 
         LinkedList llist = new LinkedList();
-    
+
         llist = insert(llist, 1);
         llist = insert(llist, 2);
         llist = insert(llist, 3);
