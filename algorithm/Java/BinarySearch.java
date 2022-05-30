@@ -45,6 +45,7 @@ public class BinarySearch {
     // Find the position of the target in nums
     public static int binarySearch1_1(int[] nums, int target) {
         int l = 0, r = nums.length - 1;
+        // iterate until right boundary is greater than left boundary
         while (l <= r) {
             int m = l + (r - l) / 2;
             // System.out.println("l:" + l + " r:" + r + " m:" + m);
