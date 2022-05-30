@@ -83,13 +83,14 @@ public class BinarySearch {
         int l = 0, r = nums.length - 1;
         while (l <= r) {
             int m = l + (r - l) / 2;
-            if (nums[m] < target) {
+            if (nums[m] >= target) {
+                // keep moving the right boundary to the left
+                // interval: [l, m-1]
+                r = m - 1;
+            } else {
+                // if (nums[m] < target)
                 // interval: [m+1, r]
                 l = m + 1;
-            } else if (nums[m] >= target) {
-                // interval: [l, m-1]
-                // keep moving the right boundary to the left
-                r = m - 1;
             }
         }
         // check left boundary
@@ -103,10 +104,11 @@ public class BinarySearch {
         while (l <= r) {
             int m = l + (r - l) / 2;
             if (nums[m] <= target) {
-                // interval: [m+1, r]
                 // keep moving the left bound to the right
+                // interval: [m+1, r]
                 l = m + 1;
-            } else if (nums[m] > target) {
+            } else {
+                // if (nums[m] > target)
                 // interval: [l, m-1]
                 r = m - 1;
             }
