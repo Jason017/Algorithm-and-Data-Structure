@@ -51,22 +51,29 @@ public class SortAlgorithm {
         // System.out.println(arr[i]);
         // }
 
-        // // mergeSort
-        // System.out.println("Merge Sort Test");
-        // arr = new int[] { 6, 7, 9, 13, 21, 45, 101, 102 };
-        // n = arr.length;
-        // mergeSort(arr, 0, n - 1);
-        // for (int i = 0; i < n; i++) {
-        // System.out.println(arr[i]);
-        // }
-
-        // shellSort
-        arr = new int[] { 2, 5, 3, 1, 10, 4 };
+        // mergeSort
+        System.out.println("Merge Sort Test");
+        arr = new int[] { 45, 6, 7, 9, 101, 2, 21, 5, 3, 102, 13 };
         n = arr.length;
-        shellSort(arr);
+        mergeSort(arr, 0, n - 1);
         for (int i = 0; i < n; i++) {
             System.out.println(arr[i]);
         }
+
+        arr = new int[] { 45, 6, 7, 9, 101, 2, 21, 5, 3, 102, 13 };
+        n = arr.length;
+        arr = mergeSort(arr);
+        for (int i = 0; i < n; i++) {
+            System.out.println(arr[i]);
+        }
+
+        // shellSort
+        // arr = new int[] { 2, 5, 3, 1, 10, 4 };
+        // n = arr.length;
+        // shellSort(arr);
+        // for (int i = 0; i < n; i++) {
+        // System.out.println(arr[i]);
+        // }
 
         // // selectionSort
         // System.out.println("Selection Sort Test");
@@ -80,6 +87,7 @@ public class SortAlgorithm {
         // // insertionSort
         // System.out.println("Insertion Sort Test");
         // arr = new int[] { 2, 5, 3, 1, 10, 4 };
+        // n = arr.length;
         // insertionSort(arr);
         // for (int i = 0; i < n; i++) {
         // System.out.println(arr[i]);
@@ -171,29 +179,21 @@ public class SortAlgorithm {
 
         while (i <= mid && j <= end) {
             if (arr[i] <= arr[j]) {
-                temp[k] = arr[i];
-                k += 1;
-                i += 1;
+                temp[k++] = arr[i++];
             } else {
-                temp[k] = arr[j];
-                k += 1;
-                j += 1;
+                temp[k++] = arr[j++];
             }
         }
 
         while (i <= mid) {
-            temp[k] = arr[i];
-            k += 1;
-            i += 1;
+            temp[k++] = arr[i++];
         }
 
         while (j <= end) {
-            temp[k] = arr[j];
-            k += 1;
-            j += 1;
+            temp[k++] = arr[j++];
         }
 
-        for (i = start; i <= end; i += 1) {
+        for (i = start; i <= end; i++) {
             arr[i] = temp[i - start];
         }
     }
@@ -205,6 +205,41 @@ public class SortAlgorithm {
             mergeSort(arr, mid + 1, end);
             merge(arr, start, mid, end);
         }
+    }
+
+    public static int[] mergeSort(int[] arr) {
+        int n = arr.length;
+        if (n == 1)
+            return arr;
+
+        int[] arr1 = Arrays.copyOfRange(arr, 0, n / 2);
+        int[] arr2 = Arrays.copyOfRange(arr, n / 2, n);
+
+        return mergeArray(mergeSort(arr1), mergeSort(arr2));
+    }
+
+    public static int[] mergeArray(int[] arr1, int[] arr2) {
+        int n1 = arr1.length, n2 = arr2.length;
+        int[] res = new int[n];
+        int i = 0, j = 0, k = 0;
+
+        while (i <= arr1.length && j <= arr2.length) {
+            if (arr1[i] < arr2[j]) {
+                res[k++] = arr1[i++];
+            } else {
+                res[k++] = arr2[j++];
+            }
+        }
+
+        while (i <= arr1.length) {
+            res[k++] = arr1[i++];
+        }
+
+        while (j <= arr2.length) {
+            res[k++] = arr2[j++];
+        }
+
+        return res;
     }
 
     // --------------------------heap sort--------------------------
@@ -265,7 +300,7 @@ public class SortAlgorithm {
         for (int i = 1; i < n; i++) {
             int key = arr[i];
             int j = i - 1;
-            while ((j >= 0) && (key < arr[j])) {
+            while (j >= 0 && key < arr[j]) {
                 arr[j + 1] = arr[j];
                 j--;
             }

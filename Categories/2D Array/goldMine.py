@@ -8,9 +8,9 @@ def getMaxGold(gold):
         return -1
 
     dp = [[0] * n for _ in range(m)]
-    
+
     for row in range(m):
-        for col in range(n-1,-1,-1):
+        for col in range(n-1, -1, -1):
             if col == n-1:
                 right = 0
             else:
@@ -27,13 +27,14 @@ def getMaxGold(gold):
                 right_down = dp[row+1][col+1]
 
             dp[row][col] = gold[row][col] + max(right, right_up, right_down)
-    
+
     return max(dp[i][j] for i in range(m) for j in range(n))
 
+
 gold = [[1, 3, 1, 5],
-    [2, 2, 4, 1],
-    [5, 0, 2, 3],
-    [0, 6, 1, 2]]
+        [2, 2, 4, 1],
+        [5, 0, 2, 3],
+        [0, 6, 1, 2]]
 
 
 print(getMaxGold(gold))

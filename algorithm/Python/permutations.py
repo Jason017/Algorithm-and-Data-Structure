@@ -10,6 +10,8 @@ Core: Backtrack/DFS
 
 # Solution 1
 # O(n*n!) O(n!)
+
+
 def dfs(arr, level, output):
     if level == len(arr):
         output.append(arr[:])
@@ -20,12 +22,14 @@ def dfs(arr, level, output):
         # print("after", level, i, arr)
         arr[i], arr[level] = arr[level], arr[i]
 
+
 def permute(arr):
     output = []
     dfs(arr, 0, output)
     return output
 
-print(permute([1,2,3]))
+
+print(permute([1, 2, 3]))
 
 
 # Solution 2
@@ -34,7 +38,7 @@ def permute(arr):
     output = []
     if len(arr) == 1:
         output.append(arr[:])
-        
+
     for _ in range(len(arr)):
         ele = arr.pop(0)
         perms = permute(arr)
@@ -47,7 +51,8 @@ def permute(arr):
 
     return output
 
-print(permute([1,2,3]))
+
+print(permute([1, 2, 3]))
 
 
 # Solution 3
@@ -61,13 +66,15 @@ def backtrack(output, arr, visited, curr):
             backtrack(output, arr, visited, curr+[ele])
             visited.remove(ele)
 
+
 def permute(arr):
     visited = set()
     output = []
     backtrack(output, arr, visited, [])
     return output
 
-print(permute([1,2,3]))
+
+print(permute([1, 2, 3]))
 
 
 # Solution 4
@@ -77,6 +84,7 @@ def dfs(output, arr, curr=[]):
         output.append(curr)
     for i in range(len(arr)):
         dfs(output, arr[:i]+arr[i+1:], curr+[arr[i]])
+
 
 def permute(arr):
     output = []
@@ -95,7 +103,7 @@ def permute(arr):
         else:
             tmp = []
             for ele in output:
-                for j in range(i+1): 
+                for j in range(i+1):
                     e = ele[:]
                     e.insert(j, arr[i])
                     tmp.append(e)
@@ -103,4 +111,5 @@ def permute(arr):
         i += 1
     return output
 
-print(permute([1,2,3]))
+
+print(permute([1, 2, 3]))

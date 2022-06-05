@@ -6,7 +6,7 @@ def almostIncreasingSequence(nums):
             if nums[i] >= nums[i+1]:
                 return i
         return idx
-    
+
     idx = helper(nums)
     if idx == -1:
         return True
@@ -17,23 +17,23 @@ def almostIncreasingSequence(nums):
         # Deleting a later element that goes down
         return True
     return False
-    
-nums = [10,1,2,3,4,5]
-print(almostIncreasingSequence(nums)) # True
-nums = [1,2,3,4,5,-10]
-print(almostIncreasingSequence(nums)) # True
-nums = [1,2,3,4,3,6]
-print(almostIncreasingSequence(nums)) # True
-nums = [1,2,3,4,99,5,6]
-print(almostIncreasingSequence(nums)) # True
-nums = [1,2,3]
-print(almostIncreasingSequence(nums)) # True
-nums = [1,3,2]
-print(almostIncreasingSequence(nums)) # True
-nums = [1,2,2,3]
-print(almostIncreasingSequence(nums)) # True
-nums = [1,3,2,1]
-print(almostIncreasingSequence(nums)) # False
-nums = [3,2,1]
-print(almostIncreasingSequence(nums)) # False
 
+
+nums = [10, 1, 2, 3, 4, 5]
+print(almostIncreasingSequence(nums))  # True
+nums = [1, 2, 3, 4, 5, -10]
+print(almostIncreasingSequence(nums))  # True
+nums = [1, 2, 3, 4, 3, 6]
+print(almostIncreasingSequence(nums))  # True
+nums = [1, 2, 3, 4, 99, 5, 6]
+print(almostIncreasingSequence(nums))  # True
+nums = [1, 2, 3]
+print(almostIncreasingSequence(nums))  # True
+nums = [1, 3, 2]
+print(almostIncreasingSequence(nums))  # True
+nums = [1, 2, 2, 3]
+print(almostIncreasingSequence(nums))  # True
+nums = [1, 3, 2, 1]
+print(almostIncreasingSequence(nums))  # False
+nums = [3, 2, 1]
+print(almostIncreasingSequence(nums))  # False

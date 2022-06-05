@@ -16,7 +16,7 @@ graph = {'0': set(['1', '2']),
          '4': set(['3'])}
 print('1st approach')
 print(graph)
-dfs(graph,'0')
+dfs(graph, '0')
 print()
 
 #       0
@@ -28,12 +28,12 @@ print()
 
 # 2nd approach
 g = {
-    'A' : ['B','C'],
-    'B' : ['D','E'],
-    'C' : ['F'],
-    'D' : [],
-    'E' : ['F'],
-    'F' : []
+    'A': ['B', 'C'],
+    'B': ['D', 'E'],
+    'C': ['F'],
+    'D': [],
+    'E': ['F'],
+    'F': []
 }
 
 #      A
@@ -42,6 +42,7 @@ g = {
 #   / \  \
 #  D  E - F
 
+
 def dfs(graph, node, visited=None):
     if visited is None:
         visited = set()
@@ -49,10 +50,10 @@ def dfs(graph, node, visited=None):
         print(node)
         visited.add(node)
         for neighbour in graph[node]:
-            dfs(graph,neighbour,visited)
+            dfs(graph, neighbour, visited)
+
 
 print('2nd approach')
 dfs(g, 'A')
 
 # 3rd approach
-

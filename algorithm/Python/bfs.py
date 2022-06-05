@@ -10,11 +10,12 @@ graph = {
 
 #      B - E
 #    / \  /
-#   /  \ / 
-#   A  D  
-#   \  /  
+#   /  \ /
+#   A  D
+#   \  /
 #    \/
 #    C
+
 
 def bfs(graph, vertex):
     dq = deque([vertex])
@@ -29,7 +30,8 @@ def bfs(graph, vertex):
                 parent[n] = v
     return level, parent
 
-print(bfs(graph,'A'))
+
+print(bfs(graph, 'A'))
 
 # {'A': 0, 'B': 1, 'C', 1, 'D': 2, 'E', 2},  # level
 # {'A': None, 'B': 'A', 'C': 'A', 'D', 'B', 'E', 'B'}  # parent
