@@ -12,11 +12,5 @@ class BinaryGap:
                     p2 = i
                     dtc = max((p2-p1), dtc)
                     p1 = p2
-                
+
         return dtc
-
-
-
-
-
-

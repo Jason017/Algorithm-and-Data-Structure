@@ -1,5 +1,5 @@
 class OddOccurrenceInArray:
-    def solution(A):
+    def solution1(A):
         result = 0
         for n in A:
             result ^= n

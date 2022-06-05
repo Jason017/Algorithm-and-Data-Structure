@@ -14,7 +14,8 @@ def smallest_subarray_with_given_sum(nums, k):
         return -1
     return ans
 
-nums = [2,1,5,2,3,2]
+
+nums = [2, 1, 5, 2, 3, 2]
 k = 5
 print(smallest_subarray_with_given_sum(nums, k))
 
@@ -31,9 +32,10 @@ def max_sub_array_of_size_k(nums, k):
 
     return ans
 
-nums = [2,1,5,1,3,2]
-k=3 
+
+nums = [2, 1, 5, 1, 3, 2]
+k = 3
 print(max_sub_array_of_size_k(nums, k))
-nums = [2,3,4,1,5]
-k=2
+nums = [2, 3, 4, 1, 5]
+k = 2
 print(max_sub_array_of_size_k(nums, k))

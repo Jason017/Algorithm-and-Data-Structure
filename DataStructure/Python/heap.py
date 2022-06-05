@@ -1,6 +1,7 @@
 # https://leetcode.com/explore/learn/card/heap/643/heap/4018/
 import sys
 
+
 # Min Heap: all nodes have smaller values than their child nodes
 class MinHeap:
     def __init__(self, heapSize):
@@ -21,10 +22,10 @@ class MinHeap:
             self.minheap[parent], self.minheap[index] = self.minheap[index], self.minheap[parent]
             index = parent
             parent = index // 2
-    
+
     def peek(self):
         return self.minheap[1]
-    
+
     def pop(self):
         if self.realSize < 1:
             print("Don't have any element!")
@@ -47,13 +48,14 @@ class MinHeap:
                 else:
                     break
             return removeElement
-    
+
     def size(self):
         return self.realSize
-    
+
     def __str__(self):
-        return str(self.minheap[1 : self.realSize + 1])
-        
+        return str(self.minheap[1: self.realSize + 1])
+
+
 # Max Heap: all nodes have bigger values than their child nodes
 class MaxHeap:
     def __init__(self, heapSize):
@@ -70,15 +72,15 @@ class MaxHeap:
         self.maxheap[self.realSize] = element
         index = self.realSize
         parent = index // 2
-        
+
         while (self.maxheap[index] > self.maxheap[parent] and index > 1):
             self.maxheap[parent], self.maxheap[index] = self.maxheap[index], self.maxheap[parent]
             index = parent
             parent = index // 2
-            
+
     def peek(self):
         return self.maxheap[1]
-    
+
     def pop(self):
         if self.realSize < 1:
             print("Don't have any element!")
@@ -101,13 +103,12 @@ class MaxHeap:
                 else:
                     break
             return removeElement
-    
+
     def size(self):
         return self.realSize
-    
-    def __str__(self):
-        return str(self.maxheap[1 : self.realSize + 1])
 
+    def __str__(self):
+        return str(self.maxheap[1: self.realSize + 1])
 
 
 if __name__ == "__main__":
@@ -116,25 +117,25 @@ if __name__ == "__main__":
     minHeap.add(3)
     minHeap.add(1)
     minHeap.add(2)
-    print(minHeap) # [1, 3, 2]
-    print(minHeap.peek()) # 1
-    print(minHeap.pop()) # 1
-    print(minHeap.pop()) # 2
-    print(minHeap.pop()) # 3
+    print(minHeap)  # [1, 3, 2]
+    print(minHeap.peek())  # 1
+    print(minHeap.pop())  # 1
+    print(minHeap.pop())  # 2
+    print(minHeap.pop())  # 3
     minHeap.add(4)
-    minHeap.add(5) 
+    minHeap.add(5)
     print(minHeap)
 
     print("\nCreating a new Max Heap")
-    maxHeap = MaxHeap(5)    
+    maxHeap = MaxHeap(5)
     maxHeap.add(1)
     maxHeap.add(2)
     maxHeap.add(3)
-    print(maxHeap) # [3, 1, 2]
-    print(maxHeap.peek()) # 3
-    print(maxHeap.pop()) # 3
-    print(maxHeap.pop()) # 2
-    print(maxHeap.pop()) # 1
+    print(maxHeap)  # [3, 1, 2]
+    print(maxHeap.peek())  # 3
+    print(maxHeap.pop())  # 3
+    print(maxHeap.pop())  # 2
+    print(maxHeap.pop())  # 1
     maxHeap.add(4)
     maxHeap.add(5)
-    print(maxHeap) # [5,4]
+    print(maxHeap)  # [5,4]

@@ -1,18 +1,22 @@
 from collections import deque
 from typing import List
 
+
 class DAG:
     '''
     Directed Acyclic Graph (DAG). There's no cycle in this case, but it can have disconnected parts
     '''
-    def __init__(self, path: List[int]) -> None:
-        if not path: print("Invalid Input"); return 
-        self.vertices = len(path)
-        self.graph = {i:path[i] for i in range(self.vertices)}
 
+    def __init__(self, path: List[int]) -> None:
+        if not path:
+            print("Invalid Input")
+            return
+        self.vertices = len(path)
+        self.graph = {i: path[i] for i in range(self.vertices)}
 
     # BFS + Stack
-    def allPathsSrcDestBFS(self, src: int, dst: int) -> List[int]: 
+
+    def allPathsSrcDestBFS(self, src: int, dst: int) -> List[int]:
         stack = [[src]]
         output = []
 
@@ -26,11 +30,11 @@ class DAG:
 
         return output
 
-
     # DFS + Backtrack
-    def allPathsSrcDestDFS(self, src: int, dst: int) -> List[int]: 
+
+    def allPathsSrcDestDFS(self, src: int, dst: int) -> List[int]:
         output = []
-        
+
         def backtrack(curr, path):
             if curr == dst:
                 output.append(path)
@@ -40,8 +44,8 @@ class DAG:
         backtrack(src, [0])
         return output
 
-
     # BFS + Queue
+
     def allConnectedNodesBFS(self, node):
         visited = set()
         q = deque([node])
@@ -55,10 +59,10 @@ class DAG:
                     q.append(nei)
                     visited.add(nei)
 
-        return output 
-    
+        return output
 
     # DFS + Backtrack
+
     def allConnectedNodesDFS(self, node):
         output = []
 
@@ -72,20 +76,20 @@ class DAG:
         return output
 
 
-dag = DAG([[4,3,1],[3,2,4],[3],[4],[]])
+dag = DAG([[4, 3, 1], [3, 2, 4], [3], [4], []])
 print("Graph:", dag.graph)
 print("Size:", dag.vertices)
-print("All possible paths from src to dest (BFS):", dag.allPathsSrcDestBFS(0,4))
-print("All possible paths from src to dest (DFS):", dag.allPathsSrcDestDFS(0,4))
+print("All possible paths from src to dest (BFS):", dag.allPathsSrcDestBFS(0, 4))
+print("All possible paths from src to dest (DFS):", dag.allPathsSrcDestDFS(0, 4))
 print("All connected nodes from src (BFS):", dag.allConnectedNodesBFS(0))
 print("All connected nodes from src (DFS):", dag.allConnectedNodesDFS(0))
-
 
 
 class DG(DAG):
     '''
     Directed Graph (DG).
     '''
+
     # DFS
     def hasCycle(self):
         visited = [0] * self.vertices
@@ -111,12 +115,11 @@ class DG(DAG):
         return False
 
 
-g = DG([[1],[2],[3,4],[0],[2]]) 
-print(g.hasCycle()) # True
+g = DG([[1], [2], [3, 4], [0], [2]])
+print(g.hasCycle())  # True
 
-g = DG([[1,2],[3],[3],[]])
-print(g.hasCycle()) # False
+g = DG([[1, 2], [3], [3], []])
+print(g.hasCycle())  # False
 
-g = DG([[1,2],[2],[0,3],[3]]) 
-print(g.hasCycle()) # True
-
+g = DG([[1, 2], [2], [0, 3], [3]])
+print(g.hasCycle())  # True

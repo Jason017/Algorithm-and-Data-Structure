@@ -2,7 +2,7 @@ class Node:
     def __init__(self, data=0, next=None):
         self.data = data
         self.next = next
-    
+
     def reverse_node(self):
         prev = None
         curr = self
@@ -12,6 +12,7 @@ class Node:
             prev = curr
             curr = nextnode
         return prev
+
 
 class LinkedList:
     def __init__(self):
@@ -57,12 +58,14 @@ class LinkedList:
             head = head.next
         return ans
 
+
 def to_linkedList(aList):
     new_llist = LinkedList()
     for i in aList:
         new_llist.push(i)
     new_llist.reverse()
     return new_llist
+
 
 llist = LinkedList()
 llist.push(20)
@@ -97,6 +100,7 @@ def reverse(head):
         curr = nextnode
     return prev
 
+
 def to_llist(aList):
     head = answer = Node(0)
     for i in aList:
@@ -104,4 +108,3 @@ def to_llist(aList):
         head.next = newnode
         head = head.next
     return answer.next
-

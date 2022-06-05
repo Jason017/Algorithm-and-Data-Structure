@@ -1,5 +1,3 @@
-//package Example;
-
 import java.util.Arrays;
 
 public class findPermutation {
@@ -15,16 +13,15 @@ public class findPermutation {
         // System.out.println("Took " + (endTime - startTime) + " ms");
     }
 
-
-    //    private static void permutation(String candidate, String remaining) {
-    //        if (remaining.length() == 0)
-    //            System.out.println(candidate);
-    //        for (int i = 0; i < remaining.length(); i++) {
-    //            String newCandidate = candidate + remaining.charAt(i);
-    //            String newRemaining = remaining.substring(0, i) + remaining.substring(i + 1);
-    //            permutation(newCandidate, newRemaining);
-    //        }
-    //    }
+    // private static void permutation(String candidate, String remaining) {
+    // if (remaining.length() == 0)
+    // System.out.println(candidate);
+    // for (int i = 0; i < remaining.length(); i++) {
+    // String newCandidate = candidate + remaining.charAt(i);
+    // String newRemaining = remaining.substring(0, i) + remaining.substring(i + 1);
+    // permutation(newCandidate, newRemaining);
+    // }
+    // }
 
     // Find all permutations of a given String using recursion
     // Took 17 ms
@@ -48,7 +45,6 @@ public class findPermutation {
         }
     }
 
-
     public static String swap1(String str, int i, int j) {
         char temp;
         char[] charArray = str.toCharArray();
@@ -57,7 +53,7 @@ public class findPermutation {
         charArray[j] = temp;
         return String.valueOf(charArray);
     }
-    
+
     // Took 0 ms
     private static void permutation2(char[] chars, int currentIndex) {
         if (currentIndex == chars.length - 1)
@@ -68,7 +64,6 @@ public class findPermutation {
             swap2(chars, currentIndex, i);
         }
     }
-
 
     private static void swap2(char[] chars, int i, int j) {
         char temp = chars[i];

@@ -1,23 +1,25 @@
 # In-place Function to Flatten Binary Tree into a Linked List
-# The idea is to traverse through the nodes from left->right->root 
+# The idea is to traverse through the nodes from left->right->root
 # and move every node to the right
 
 # Here are three implementation provided below based on this youtube video
 # https://www.youtube.com/watch?v=pCtXQ9XI7As&t=801s&ab_channel=FitCoder
 from collections import deque
 
+
 class TreeNode:
     def __init__(self, val):
         self.val = val
         self.left = None
         self.right = None
-        
+
         self.prev = None
 
     # Recursive Approach
     # O(N), O(N)
     def flatten(self, root):
-        if not root: return
+        if not root:
+            return
         self.flatten(root.right)
         self.flatten(root.left)
         root.right = self.prev
@@ -51,7 +53,6 @@ class TreeNode:
                 root.left = None
             root = root.right
 
-
     def toList(self, root):
         q = deque([root])
         output = []
@@ -66,11 +67,12 @@ class TreeNode:
                     q.append(curr.right)
         return output
 
-
     # Deep copy a tree with DFS
     # Similar Approach: LeetCode 133. Clone Graph
+
     def cloneTree(self, root):
-        if not root: return None
+        if not root:
+            return None
         oldToNew = {root: TreeNode(root.val)}
 
         def dfs(node):
@@ -87,7 +89,6 @@ class TreeNode:
 
         dfs(root)
         return oldToNew[root]
-
 
 
 treeNode = TreeNode(None)
@@ -124,8 +125,6 @@ Flattended Tree:
                \
                 G
 '''
-
-
 
 
 root1 = treeNode.cloneTree(root)

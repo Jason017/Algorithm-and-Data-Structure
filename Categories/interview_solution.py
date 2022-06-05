@@ -1,4 +1,7 @@
+from itertools import combinations
 from typing import List
+
+
 def combinationOfSum(nums: List[int], target: int) -> List[tuple]:
     '''
     Given an unsorted list of N numbers, write a program/function 
@@ -6,43 +9,38 @@ def combinationOfSum(nums: List[int], target: int) -> List[tuple]:
     up to a number Y.
     '''
     nums.sort()
-    ans=set()
-    i,j=0,len(nums)-1
+    ans = set()
+    i, j = 0, len(nums)-1
 
-    while j-i>=1:
-        if nums[i]+nums[j]<target:
-            i+=1
-        elif nums[i]+nums[j]>target:
-            j-=1
+    while j-i >= 1:
+        if nums[i]+nums[j] < target:
+            i += 1
+        elif nums[i]+nums[j] > target:
+            j -= 1
         else:
-            ans.add((nums[i],nums[j]))            
-            i+=1
-            j-=1
+            ans.add((nums[i], nums[j]))
+            i += 1
+            j -= 1
 
     return list(ans)
 
 
-from typing import List
-from itertools import combinations 
-
 def combinationOfSum2(nums: List[int], target: int) -> List[tuple]:
     def findCombinations(nums, target, N):
         return [i for i in combinations(nums, N) if sum(i) == target]
-    ans=[]
+    ans = []
     nums.sort()
-    for i in range(2,len(nums)+1):
-        ans+=findCombinations(nums,target,i)
+    for i in range(2, len(nums)+1):
+        ans += findCombinations(nums, target, i)
     return list(set(ans))
 
-nums=[1,2,3,4,-3,-1,0,4,-6]
-target=3
-print([i for i in combinationOfSum2(nums,target) if len(i)==2])
-print(combinationOfSum(nums,target))
+
+nums = [1, 2, 3, 4, -3, -1, 0, 4, -6]
+target = 3
+print([i for i in combinationOfSum2(nums, target) if len(i) == 2])
+print(combinationOfSum(nums, target))
 
 
-
-
-from typing import List
 def coinsValue(coins: List[int], V: int) -> int:
     '''
     Given some value V that is between 0 - 100 and predefined,
@@ -58,8 +56,7 @@ def coinsValue(coins: List[int], V: int) -> int:
             if coins[j] <= i:
                 dp[i] = min(dp[i], dp[i-coins[j]]+1)
 
-    return -1 if dp[V]>V else dp[V]
-
+    return -1 if dp[V] > V else dp[V]
 
 
 '''
@@ -69,34 +66,35 @@ Create/pick an ideal data structure to represent a contact list
 and describe its trade offs and why it was picked.
 '''
 
+
 class Contact:
-    def __init__(self,name: str,phoneNumber: int,email: str) -> None:
-        self.name=name
-        self.phoneNumber=phoneNumber
-        self.email=email
+    def __init__(self, name: str, phoneNumber: int, email: str) -> None:
+        self.name = name
+        self.phoneNumber = phoneNumber
+        self.email = email
+
 
 class ContactList:
     def __init__(self) -> None:
-        self.table={}
-        self.nContacts=0
+        self.table = {}
+        self.nContacts = 0
 
-    def add_contact(self,newContact: Contact,addBy: str) -> None:
-        if addBy=='name':    
-            self.table[newContact.name]=newContact
-            self.nContacts+=1
-        elif addBy=='phone number':
-            self.table[newContact.phoneNumber]=newContact
-            self.nContacts+=1
-        elif addBy=='email':
-            self.table[newContact.email]=newContact
-            self.nContacts+=1
-    
-    def search_contact(self,input: str,searchBy: str) -> Contact:
-        if searchBy=='name' or searchBy=='email':
+    def add_contact(self, newContact: Contact, addBy: str) -> None:
+        if addBy == 'name':
+            self.table[newContact.name] = newContact
+            self.nContacts += 1
+        elif addBy == 'phone number':
+            self.table[newContact.phoneNumber] = newContact
+            self.nContacts += 1
+        elif addBy == 'email':
+            self.table[newContact.email] = newContact
+            self.nContacts += 1
+
+    def search_contact(self, input: str, searchBy: str) -> Contact:
+        if searchBy == 'name' or searchBy == 'email':
             return self.table[input]
-        elif searchBy=='phone number':
+        elif searchBy == 'phone number':
             return self.table[int(input)]
-
 
 
 '''
@@ -113,16 +111,13 @@ functions that will store this information in the most space
 efficient way.
 '''
 
+
 class logo:
-    def __init__(self,userID: int,shape: str,color: str,rotationalOption: str) -> None:
-        self.userID=userID
-        self.shape=shape
-        self.color=color
-        self.rotationalOption=rotationalOption
-    
+    def __init__(self, userID: int, shape: str, color: str, rotationalOption: str) -> None:
+        self.userID = userID
+        self.shape = shape
+        self.color = color
+        self.rotationalOption = rotationalOption
+
     def getShape(self) -> str:
         return self.shape
-
-
-
-

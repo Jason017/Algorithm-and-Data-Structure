@@ -2,6 +2,7 @@
 def swap(string, i, j):
     string[i], string[j] = string[j], string[i]
 
+
 def permutations(string, curr=0):
     if curr == len(string)-1:
         res.append("".join(string))
@@ -9,6 +10,7 @@ def permutations(string, curr=0):
         swap(string, curr, i)
         permutations(string, curr+1)
         swap(string, curr, i)
+
 
 res = []
 permutations(list('abc'))
@@ -23,6 +25,7 @@ def permutations(remaining, candidate=''):
         newCandidate = candidate + remaining[i]
         newRemaining = remaining[:i] + remaining[i+1:]
         permutations(newRemaining, newCandidate)
+
 
 res = []
 permutations('abc')
@@ -40,10 +43,8 @@ def permutations(s):
             curr = res.pop(j)
             for k in range(len(curr) + 1):
                 res.append(curr[:k] + s[i] + curr[k:])
- 
+
     return res
 
+
 print(permutations('abc'))
- 
-
-
