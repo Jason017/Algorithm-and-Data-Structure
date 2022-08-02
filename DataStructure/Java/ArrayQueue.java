@@ -1,4 +1,3 @@
-@SuppressWarnings("unchecked")
 public class ArrayQueue<T> implements QueueInterface<T>, Iterable<T> {
     private static final int DEFAULT_CAPACITY = 10;
     private int cap, // total number of elements in the queue
