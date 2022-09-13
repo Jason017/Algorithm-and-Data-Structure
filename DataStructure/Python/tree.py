@@ -151,9 +151,8 @@ class BST(TreeNode):
                 root.right = self.insert(root.right, value)
             else:
                 root.left = self.insert(root.left, value)
-        else:
-            return TreeNode(value)
-        return root
+            return root
+        return TreeNode(value)
 
     # Convert a List into a TreeNode
     def construct(self, nums):

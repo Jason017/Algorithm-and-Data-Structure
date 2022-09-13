@@ -24,7 +24,7 @@ public class BinarySearch {
         System.out.println(binarySearch1_1(nums, target)); // -1
         System.out.println(binarySearch1_2(nums, target)); // -1
 
-        System.out.println(rightBound(nums, target)); // 3
+        System.out.println(rightBound(nums, target)); // 0
         System.out.println(leftBound(nums, target)); // 1
 
         System.out.println(binarySearch2_1(nums, target)); // 1
@@ -79,6 +79,10 @@ public class BinarySearch {
         return -1;
     }
 
+    // Find the leftmost index of element bigger than or equal to target
+    // Find the number of element bigger than target
+    // Find the leftmost index of consecutive element
+    // Find the position to insert target
     public static int leftBound(int[] nums, int target) {
         int l = 0, r = nums.length - 1;
         while (l <= r) {
@@ -94,11 +98,14 @@ public class BinarySearch {
             }
         }
         // check left boundary
-        if (l == nums.length || nums[l] != target)
-            return -1;
-        return l;
+        // if (l == nums.length || nums[l] != target)
+        // return -1;
+        return l == nums.length ? -1 : l;
     }
 
+    // Find the rightmost index of element smaller than or equal to target
+    // Find the number of element smaller than target
+    // Find the rightmost index of consecutive element
     public static int rightBound(int[] nums, int target) {
         int l = 0, r = nums.length - 1;
         while (l <= r) {
@@ -114,38 +121,8 @@ public class BinarySearch {
             }
         }
         // check right boundary
-        if (r == -1 || nums[r] != target)
-            return -1;
+        // if (r == -1 || nums[r] != target)
+        // return -1;
         return r;
-    }
-
-    // Find the position to insert target in nums
-    // Find the number of elements smaller than target in nums
-    public static int binarySearch2_1(int[] nums, int target) {
-        int l = 0, r = nums.length - 1;
-        while (l <= r) {
-            int m = l + (r - l) / 2;
-            if (nums[m] >= target) {
-                r = m - 1;
-            } else {
-                l = m + 1;
-            }
-        }
-        return l;
-    }
-
-    // Find the position to insert target in nums
-    // Find the number of elements smaller than target in nums
-    public static int binarySearch2_2(int[] nums, int target) {
-        int l = 0, r = nums.length;
-        while (l < r) {
-            int m = l + (r - l) / 2;
-            if (nums[m] >= target) {
-                r = m;
-            } else {
-                l = m + 1;
-            }
-        }
-        return l;
     }
 }

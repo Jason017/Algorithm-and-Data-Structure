@@ -133,7 +133,7 @@ public class SortAlgorithm {
     }
 
     // --------------------------selection sort--------------------------
-    // O(N^2)
+    // O(N^2), O(1)
     public static void selectionSort(int[] arr) {
         int n = arr.length;
         for (int i = 0; i < n - 1; i++) {
@@ -147,7 +147,7 @@ public class SortAlgorithm {
     }
 
     // --------------------------insertion sort--------------------------
-    // O(N^2)
+    // O(N^2), O(1)
     public static void insertionSort(int[] arr) {
         int n = arr.length;
         for (int i = 1; i < n; i++) {
@@ -233,8 +233,7 @@ public class SortAlgorithm {
     }
 
     // --------------------------merge sort--------------------------
-    // O(N*log(N))), O(N)
-
+    // O(NlogN)), O(N)
     // Sorting in-place
     public static void mergeSort(int[] arr, int start, int end) {
         if (start < end) {
@@ -307,7 +306,7 @@ public class SortAlgorithm {
     }
 
     // --------------------------heap sort--------------------------
-    // O(N*log(N))
+    // O(NlogN), O(N)
     public static void heapSort(int[] arr) {
         buildHeap(arr);
         for (int i = arr.length - 1; i >= 0; i--) {
@@ -345,7 +344,7 @@ public class SortAlgorithm {
     }
 
     // --------------------------heap sort--------------------------
-    // O(N*log(N))
+    // O(NlogN))
     public static void quickSort(int[] arr, int start, int end) {
         if (start < end) {
             int pivot = partition(arr, start, end);
