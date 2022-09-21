@@ -9,18 +9,19 @@ def commonPrefix(left_str, right_str):
             return left_str[:i]
     return left_str[:n]
 
+
 def longestCommonPrefix(arr, left, right):
     if left == right:
         return arr[left]
     else:
         mid = (left + right) // 2
-        left_lcp = longestCommonPrefix(arr, left , mid)
+        left_lcp = longestCommonPrefix(arr, left, mid)
         right_lcp = longestCommonPrefix(arr, mid + 1, right)
         return commonPrefix(left_lcp, right_lcp)
 
-arr = ["geeksforgeeks", "geeks", "geek", "geezer"]
-print("LCP:",longestCommonPrefix(arr, 0, len(arr)-1))
 
+arr = ["geeksforgeeks", "geeks", "geek", "geezer"]
+print("LCP:", longestCommonPrefix(arr, 0, len(arr)-1))
 
 
 # Binary Search
@@ -31,20 +32,21 @@ def allContainsPrefix(arr, str, start, end):
             if word[j] != str[j]:
                 return False
     return True
-  
+
+
 def longestCommonPrefix(arr):
-    index = len(min(arr, key = len))
-    prefix = ""   
+    index = len(min(arr, key=len))
+    prefix = ""
     low, high = 0, index - 1
     while low <= high:
         mid = (high + low) // 2
         if allContainsPrefix(arr, arr[0], low, mid):
             prefix = prefix + arr[0][low:mid + 1]
             low = mid + 1
-        else: 
+        else:
             high = mid - 1
     return prefix
 
-arr = ["geeksforgeeks", "geeks", "geek", "geezer"]
-print("LCP:",longestCommonPrefix(arr))
 
+arr = ["geeksforgeeks", "geeks", "geek", "geezer"]
+print("LCP:", longestCommonPrefix(arr))

@@ -1,13 +1,10 @@
-/**
- * https://www.geeksforgeeks.org/longest-common-subarray-in-the-given-two-arrays/
- * 
- */
-public class Solution {
+// https://www.geeksforgeeks.org/longest-common-subarray-in-the-given-two-arrays/
+public class LongestCommonSubarray {
     public static void main(String[] args) {
         int[] a = { 1, 2, 8, 2, 1 };
         int[] b = { 8, 2, 1, 4, 7 };
 
-        System.out.println(Solution.longestCommonSubarray(a, b));
+        System.out.println(longestCommonSubarray(a, b)); // 3
     }
 
     public static int longestCommonSubarray(int[] nums1, int[] nums2) {

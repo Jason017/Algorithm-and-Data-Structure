@@ -1,5 +1,4 @@
-# Similar question: LeetCode 300.
-
+# Similar question: LeetCode 300. Longest Increasing Subsequence
 def longestIncreasingSubstring(nums):
     curr = ans = 1
     for i in range(1, len(nums)):
@@ -9,8 +8,11 @@ def longestIncreasingSubstring(nums):
             curr = 1
         ans = max(ans, curr)
     return ans
+
+
 nums = [5, 6, 3, 5, 7, 8, 9, 1, 2]
 print(longestIncreasingSubstring(nums))
+
 
 # Find all increasing substring
 def findIncreasingSubstring(nums):
@@ -23,6 +25,7 @@ def findIncreasingSubstring(nums):
             idx += 1
             output.append([nums[i]])
     return output
+
 
 nums = [5, 6, 3, 5, 7, 8, 9, 1, 2]
 print(findIncreasingSubstring(nums))
