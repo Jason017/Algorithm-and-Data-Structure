@@ -244,8 +244,8 @@ public class SortAlgorithm {
         }
     }
 
-    private static void merge(int arr[], int start, int mid, int end) {
-        int temp[] = new int[end - start + 1];
+    private static void merge(int[] arr, int start, int mid, int end) {
+        int[] temp = new int[end - start + 1];
         int i = start, j = mid + 1, k = 0;
 
         while (i <= mid && j <= end) {
@@ -354,26 +354,26 @@ public class SortAlgorithm {
     }
 
     private static int partition(int[] arr, int start, int end) {
-        int pivot = nums[end];
+        int pivot = arr[end];
         int i = start - 1;
         for (int j = start; j < end; j++) {
-            if (nums[j] < pivot) {
-                swap(nums, ++i, j);
+            if (arr[j] < pivot) {
+                swap(arr, ++i, j);
             }
         }
-        swap(nums, i + 1, end);
+        swap(arr, i + 1, end);
         return i + 1;
     }
 
     private static int partition2(int[] arr, int start, int end) {
-        int pivot = nums[start];
+        int pivot = arr[start];
         int j = start + 1;
         for (int i = j; i <= end; i++) {
-            if (nums[i] < pivot) {
-                swap(nums, i, j++);
+            if (arr[i] < pivot) {
+                swap(arr, i, j++);
             }
         }
-        swap(nums, j - 1, start);
+        swap(arr, j - 1, start);
         return j - 1;
     }
 
