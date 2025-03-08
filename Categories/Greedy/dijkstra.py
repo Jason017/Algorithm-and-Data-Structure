@@ -1,6 +1,5 @@
 import heapq
 
-
 def calculate_distances(graph, starting_vertex):
     distances = {vertex: float('inf') for vertex in graph}
     distances[starting_vertex] = 0
@@ -19,7 +18,6 @@ def calculate_distances(graph, starting_vertex):
                 heapq.heappush(pq, (distance, neighbor))
 
     return distances
-
 
 example_graph = {
     'U': {'W': 5, 'V': 2, 'X': 1},

@@ -47,7 +47,7 @@ public class BinarySearch {
         int l = 0, r = nums.length - 1;
         // iterate until right boundary is greater than left boundary
         while (l <= r) {
-            int m = l + (r - l) / 2;
+            int m = l + (r - l) / 2; // avoid integer overflow in java
             // System.out.println("l:" + l + " r:" + r + " m:" + m);
             if (nums[m] == target) {
                 return m;
@@ -66,7 +66,7 @@ public class BinarySearch {
     public static int binarySearch1_2(int[] nums, int target) {
         int l = 0, r = nums.length;
         while (l < r) {
-            int m = l + (r - l) / 2;
+            int m = l + (r - l) / 2; // avoid integer overflow in java
             // System.out.println("l:" + l + " r:" + r + " m:" + m);
             if (nums[m] == target) {
                 return m;
@@ -86,7 +86,7 @@ public class BinarySearch {
     public static int leftBound(int[] nums, int target) {
         int l = 0, r = nums.length - 1;
         while (l <= r) {
-            int m = l + (r - l) / 2;
+            int m = l + (r - l) / 2; // avoid integer overflow in java
             if (nums[m] >= target) {
                 // keep moving the right boundary to the left
                 // interval: [l, m-1]
@@ -109,7 +109,7 @@ public class BinarySearch {
     public static int rightBound(int[] nums, int target) {
         int l = 0, r = nums.length - 1;
         while (l <= r) {
-            int m = l + (r - l) / 2;
+            int m = l + (r - l) / 2; // avoid integer overflow in java
             if (nums[m] <= target) {
                 // keep moving the left bound to the right
                 // interval: [m+1, r]

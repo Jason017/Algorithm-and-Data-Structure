@@ -6,7 +6,6 @@ class DAG:
     '''
     Directed Acyclic Graph (DAG). There's no cycle in this case, but it can have disconnected parts
     '''
-
     def __init__(self, path: List[int]) -> None:
         if not path:
             print("Invalid Input")
@@ -15,7 +14,6 @@ class DAG:
         self.graph = {i: path[i] for i in range(self.vertices)}
 
     # BFS + Stack
-
     def allPathsSrcDestBFS(self, src: int, dst: int) -> List[int]:
         stack = [[src]]
         output = []
@@ -31,7 +29,6 @@ class DAG:
         return output
 
     # DFS + Backtrack
-
     def allPathsSrcDestDFS(self, src: int, dst: int) -> List[int]:
         output = []
 
@@ -45,7 +42,6 @@ class DAG:
         return output
 
     # BFS + Queue
-
     def allConnectedNodesBFS(self, node):
         visited = set()
         q = deque([node])
@@ -62,7 +58,6 @@ class DAG:
         return output
 
     # DFS + Backtrack
-
     def allConnectedNodesDFS(self, node):
         output = []
 

@@ -4,7 +4,6 @@
 
 # Solution 1: Recursive Implementation of Binary Search Solution
 # O(log(n)) O(log(n))
-
 def first(arr, low, high, target):
     if low <= high:
         mid = (high+low)//2
@@ -37,7 +36,6 @@ print(last(arr, 0, len(arr)-1, target))
 
 # Solution 2: Iterative Implementation of Binary Search Solution
 # O(log(n)) O(1)
-
 def first(arr, target):
     low, high = 0, len(arr)-1
     res = -1
