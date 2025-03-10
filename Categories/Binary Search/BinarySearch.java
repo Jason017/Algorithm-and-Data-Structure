@@ -27,9 +27,6 @@ public class BinarySearch {
         System.out.println(rightBound(nums, target)); // 0
         System.out.println(leftBound(nums, target)); // 1
 
-        System.out.println(binarySearch2_1(nums, target)); // 1
-        System.out.println(binarySearch2_2(nums, target)); // 1
-
         nums = new int[] { 1, 2, 2, 2, 3 };
         target = 2;
         System.out.println(binarySearch1_1(nums, target)); // 2
@@ -37,9 +34,6 @@ public class BinarySearch {
 
         System.out.println(rightBound(nums, target)); // 3
         System.out.println(leftBound(nums, target)); // 1
-
-        System.out.println(binarySearch2_1(nums, target)); // 1
-        System.out.println(binarySearch2_2(nums, target)); // 1
     }
 
     // Find the position of the target in nums
@@ -100,7 +94,7 @@ public class BinarySearch {
         // check left boundary
         // if (l == nums.length || nums[l] != target)
         // return -1;
-        return l == nums.length ? -1 : l;
+        return l;
     }
 
     // Find the rightmost index of element smaller than or equal to target
