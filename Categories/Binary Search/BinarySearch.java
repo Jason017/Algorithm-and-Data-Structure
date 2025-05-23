@@ -74,7 +74,7 @@ public class BinarySearch {
     }
 
     // Find the leftmost index of element bigger than or equal to target
-    // Find the number of element bigger than target
+    // Find the number of element smaller than target
     // Find the leftmost index of consecutive element
     // Find the position to insert target
     public static int leftBound(int[] nums, int target) {
@@ -98,7 +98,7 @@ public class BinarySearch {
     }
 
     // Find the rightmost index of element smaller than or equal to target
-    // Find the number of element smaller than target
+    // Find the number of element bigger than target
     // Find the rightmost index of consecutive element
     public static int rightBound(int[] nums, int target) {
         int l = 0, r = nums.length - 1;
